@@ -1,17 +1,28 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr, ConfigDict
+from pydantic import BaseModel, EmailStr, ConfigDict, model_validator
 from app.models.user import UserRole
-
 
 class UserBase(BaseModel):
     email: EmailStr
     full_name: str
     phone: Optional[str] = None
+    phone_number: Optional[str] = None
     role: UserRole = UserRole.CUSTOMER
     specialization: Optional[str] = None
     experience_years: Optional[int] = 0
     bio: Optional[str] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_phone(cls, data):
+        if isinstance(data, dict):
+            if "phone_number" in data and "phone" not in data:
+                data["phone"] = data["phone_number"]
+            elif "phone" in data and "phone_number" not in data:
+                data["phone_number"] = data["phone"]
+        return data
+
 
 
 class UserCreate(UserBase):
