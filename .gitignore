@@ -11,6 +11,7 @@ env/
 *.db
 uploads/
 backend/uploads/
+scratch/
 
 # Node / React / Playwright
 node_modules/
@@ -29,8 +30,9 @@ frontend/android/app/src/main/assets/public/
 
 # Environment variables & secrets
 .env
-.env.local
-.env.*.local
+.env.*
+*.env
+backend/.env
 
 # IDEs
 .vscode/
