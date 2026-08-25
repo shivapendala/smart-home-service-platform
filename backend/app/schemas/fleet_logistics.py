@@ -505,3 +505,98 @@ class FleetLogisticsRelationalComponent25Response(FleetLogisticsRelationalCompon
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class FleetLogisticsRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FleetLogisticsRelationalComponent26Create(FleetLogisticsRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class FleetLogisticsRelationalComponent26Response(FleetLogisticsRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FleetLogisticsRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FleetLogisticsRelationalComponent27Create(FleetLogisticsRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class FleetLogisticsRelationalComponent27Response(FleetLogisticsRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FleetLogisticsRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FleetLogisticsRelationalComponent28Create(FleetLogisticsRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class FleetLogisticsRelationalComponent28Response(FleetLogisticsRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FleetLogisticsRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FleetLogisticsRelationalComponent29Create(FleetLogisticsRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class FleetLogisticsRelationalComponent29Response(FleetLogisticsRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FleetLogisticsRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FleetLogisticsRelationalComponent30Create(FleetLogisticsRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class FleetLogisticsRelationalComponent30Response(FleetLogisticsRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

@@ -434,3 +434,78 @@ class VendorManagementService:
         if master_entity_id:
             query = query.filter(VendorManagementRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: VendorManagementRelationalComponent26Create) -> VendorManagementRelationalComponent26:
+        comp = VendorManagementRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[VendorManagementRelationalComponent26]:
+        query = db.query(VendorManagementRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(VendorManagementRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: VendorManagementRelationalComponent27Create) -> VendorManagementRelationalComponent27:
+        comp = VendorManagementRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[VendorManagementRelationalComponent27]:
+        query = db.query(VendorManagementRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(VendorManagementRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: VendorManagementRelationalComponent28Create) -> VendorManagementRelationalComponent28:
+        comp = VendorManagementRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[VendorManagementRelationalComponent28]:
+        query = db.query(VendorManagementRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(VendorManagementRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: VendorManagementRelationalComponent29Create) -> VendorManagementRelationalComponent29:
+        comp = VendorManagementRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[VendorManagementRelationalComponent29]:
+        query = db.query(VendorManagementRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(VendorManagementRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: VendorManagementRelationalComponent30Create) -> VendorManagementRelationalComponent30:
+        comp = VendorManagementRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[VendorManagementRelationalComponent30]:
+        query = db.query(VendorManagementRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(VendorManagementRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

@@ -434,3 +434,78 @@ class AiRecommendationsService:
         if master_entity_id:
             query = query.filter(AiRecommendationsRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: AiRecommendationsRelationalComponent26Create) -> AiRecommendationsRelationalComponent26:
+        comp = AiRecommendationsRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[AiRecommendationsRelationalComponent26]:
+        query = db.query(AiRecommendationsRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(AiRecommendationsRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: AiRecommendationsRelationalComponent27Create) -> AiRecommendationsRelationalComponent27:
+        comp = AiRecommendationsRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[AiRecommendationsRelationalComponent27]:
+        query = db.query(AiRecommendationsRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(AiRecommendationsRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: AiRecommendationsRelationalComponent28Create) -> AiRecommendationsRelationalComponent28:
+        comp = AiRecommendationsRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[AiRecommendationsRelationalComponent28]:
+        query = db.query(AiRecommendationsRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(AiRecommendationsRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: AiRecommendationsRelationalComponent29Create) -> AiRecommendationsRelationalComponent29:
+        comp = AiRecommendationsRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[AiRecommendationsRelationalComponent29]:
+        query = db.query(AiRecommendationsRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(AiRecommendationsRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: AiRecommendationsRelationalComponent30Create) -> AiRecommendationsRelationalComponent30:
+        comp = AiRecommendationsRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[AiRecommendationsRelationalComponent30]:
+        query = db.query(AiRecommendationsRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(AiRecommendationsRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

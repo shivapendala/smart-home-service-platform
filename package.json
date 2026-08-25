@@ -1,0 +1,14 @@
+{
+  "name": "smart-home-service-platform",
+  "version": "1.0.0",
+  "description": "Enterprise Smart Home Service Platform",
+  "main": "main.py",
+  "scripts": {
+    "start": "python main.py",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && python -m pytest"
+  },
+  "keywords": ["smarthome", "fastapi", "react", "enterprise"],
+  "author": "SmartHome Platform Team",
+  "private": true
+}

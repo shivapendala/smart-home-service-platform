@@ -68,3 +68,4 @@ def list_payment_methods(db: Session = Depends(get_db), current_user: User = Dep
 @router.post("/master", response_model=CustomerPortalMasterEntityResponse, status_code=status.HTTP_201_CREATED)
 def create_master_entity(entity_in: CustomerPortalMasterEntityCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_active_user)):
     return CustomerPortalService.create_master_entity(db, current_user.id, entity_in)
+

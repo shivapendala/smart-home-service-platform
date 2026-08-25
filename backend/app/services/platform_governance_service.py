@@ -434,3 +434,78 @@ class PlatformGovernanceService:
         if master_entity_id:
             query = query.filter(PlatformGovernanceRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: PlatformGovernanceRelationalComponent26Create) -> PlatformGovernanceRelationalComponent26:
+        comp = PlatformGovernanceRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[PlatformGovernanceRelationalComponent26]:
+        query = db.query(PlatformGovernanceRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(PlatformGovernanceRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: PlatformGovernanceRelationalComponent27Create) -> PlatformGovernanceRelationalComponent27:
+        comp = PlatformGovernanceRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[PlatformGovernanceRelationalComponent27]:
+        query = db.query(PlatformGovernanceRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(PlatformGovernanceRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: PlatformGovernanceRelationalComponent28Create) -> PlatformGovernanceRelationalComponent28:
+        comp = PlatformGovernanceRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[PlatformGovernanceRelationalComponent28]:
+        query = db.query(PlatformGovernanceRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(PlatformGovernanceRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: PlatformGovernanceRelationalComponent29Create) -> PlatformGovernanceRelationalComponent29:
+        comp = PlatformGovernanceRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[PlatformGovernanceRelationalComponent29]:
+        query = db.query(PlatformGovernanceRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(PlatformGovernanceRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: PlatformGovernanceRelationalComponent30Create) -> PlatformGovernanceRelationalComponent30:
+        comp = PlatformGovernanceRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[PlatformGovernanceRelationalComponent30]:
+        query = db.query(PlatformGovernanceRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(PlatformGovernanceRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

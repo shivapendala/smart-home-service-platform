@@ -434,3 +434,78 @@ class AuditSecurityService:
         if master_entity_id:
             query = query.filter(AuditSecurityRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: AuditSecurityRelationalComponent26Create) -> AuditSecurityRelationalComponent26:
+        comp = AuditSecurityRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[AuditSecurityRelationalComponent26]:
+        query = db.query(AuditSecurityRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(AuditSecurityRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: AuditSecurityRelationalComponent27Create) -> AuditSecurityRelationalComponent27:
+        comp = AuditSecurityRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[AuditSecurityRelationalComponent27]:
+        query = db.query(AuditSecurityRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(AuditSecurityRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: AuditSecurityRelationalComponent28Create) -> AuditSecurityRelationalComponent28:
+        comp = AuditSecurityRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[AuditSecurityRelationalComponent28]:
+        query = db.query(AuditSecurityRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(AuditSecurityRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: AuditSecurityRelationalComponent29Create) -> AuditSecurityRelationalComponent29:
+        comp = AuditSecurityRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[AuditSecurityRelationalComponent29]:
+        query = db.query(AuditSecurityRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(AuditSecurityRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: AuditSecurityRelationalComponent30Create) -> AuditSecurityRelationalComponent30:
+        comp = AuditSecurityRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[AuditSecurityRelationalComponent30]:
+        query = db.query(AuditSecurityRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(AuditSecurityRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

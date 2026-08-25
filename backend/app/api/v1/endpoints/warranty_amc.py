@@ -63,3 +63,4 @@ def list_my_inspections(db: Session = Depends(get_db), current_user: User = Depe
 @router.post("/master", response_model=WarrantyAmcMasterEntityResponse, status_code=status.HTTP_201_CREATED)
 def create_master_entity(entity_in: WarrantyAmcMasterEntityCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_active_user)):
     return WarrantyAmcService.create_master_entity(db, current_user.id, entity_in)
+

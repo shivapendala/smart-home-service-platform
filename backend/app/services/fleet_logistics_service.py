@@ -434,3 +434,78 @@ class FleetLogisticsService:
         if master_entity_id:
             query = query.filter(FleetLogisticsRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: FleetLogisticsRelationalComponent26Create) -> FleetLogisticsRelationalComponent26:
+        comp = FleetLogisticsRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[FleetLogisticsRelationalComponent26]:
+        query = db.query(FleetLogisticsRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(FleetLogisticsRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: FleetLogisticsRelationalComponent27Create) -> FleetLogisticsRelationalComponent27:
+        comp = FleetLogisticsRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[FleetLogisticsRelationalComponent27]:
+        query = db.query(FleetLogisticsRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(FleetLogisticsRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: FleetLogisticsRelationalComponent28Create) -> FleetLogisticsRelationalComponent28:
+        comp = FleetLogisticsRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[FleetLogisticsRelationalComponent28]:
+        query = db.query(FleetLogisticsRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(FleetLogisticsRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: FleetLogisticsRelationalComponent29Create) -> FleetLogisticsRelationalComponent29:
+        comp = FleetLogisticsRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[FleetLogisticsRelationalComponent29]:
+        query = db.query(FleetLogisticsRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(FleetLogisticsRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: FleetLogisticsRelationalComponent30Create) -> FleetLogisticsRelationalComponent30:
+        comp = FleetLogisticsRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[FleetLogisticsRelationalComponent30]:
+        query = db.query(FleetLogisticsRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(FleetLogisticsRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

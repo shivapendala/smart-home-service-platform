@@ -581,3 +581,98 @@ class PaymentsBillingRelationalComponent25Response(PaymentsBillingRelationalComp
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class PaymentsBillingRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PaymentsBillingRelationalComponent26Create(PaymentsBillingRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class PaymentsBillingRelationalComponent26Response(PaymentsBillingRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PaymentsBillingRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PaymentsBillingRelationalComponent27Create(PaymentsBillingRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class PaymentsBillingRelationalComponent27Response(PaymentsBillingRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PaymentsBillingRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PaymentsBillingRelationalComponent28Create(PaymentsBillingRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class PaymentsBillingRelationalComponent28Response(PaymentsBillingRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PaymentsBillingRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PaymentsBillingRelationalComponent29Create(PaymentsBillingRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class PaymentsBillingRelationalComponent29Response(PaymentsBillingRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PaymentsBillingRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PaymentsBillingRelationalComponent30Create(PaymentsBillingRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class PaymentsBillingRelationalComponent30Response(PaymentsBillingRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

@@ -567,3 +567,98 @@ class CommunicationRelationalComponent25Response(CommunicationRelationalComponen
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class CommunicationRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CommunicationRelationalComponent26Create(CommunicationRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class CommunicationRelationalComponent26Response(CommunicationRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CommunicationRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CommunicationRelationalComponent27Create(CommunicationRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class CommunicationRelationalComponent27Response(CommunicationRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CommunicationRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CommunicationRelationalComponent28Create(CommunicationRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class CommunicationRelationalComponent28Response(CommunicationRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CommunicationRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CommunicationRelationalComponent29Create(CommunicationRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class CommunicationRelationalComponent29Response(CommunicationRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CommunicationRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CommunicationRelationalComponent30Create(CommunicationRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class CommunicationRelationalComponent30Response(CommunicationRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

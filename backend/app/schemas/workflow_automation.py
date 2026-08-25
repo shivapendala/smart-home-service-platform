@@ -505,3 +505,98 @@ class WorkflowAutomationRelationalComponent25Response(WorkflowAutomationRelation
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class WorkflowAutomationRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WorkflowAutomationRelationalComponent26Create(WorkflowAutomationRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class WorkflowAutomationRelationalComponent26Response(WorkflowAutomationRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WorkflowAutomationRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WorkflowAutomationRelationalComponent27Create(WorkflowAutomationRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class WorkflowAutomationRelationalComponent27Response(WorkflowAutomationRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WorkflowAutomationRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WorkflowAutomationRelationalComponent28Create(WorkflowAutomationRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class WorkflowAutomationRelationalComponent28Response(WorkflowAutomationRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WorkflowAutomationRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WorkflowAutomationRelationalComponent29Create(WorkflowAutomationRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class WorkflowAutomationRelationalComponent29Response(WorkflowAutomationRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WorkflowAutomationRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WorkflowAutomationRelationalComponent30Create(WorkflowAutomationRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class WorkflowAutomationRelationalComponent30Response(WorkflowAutomationRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

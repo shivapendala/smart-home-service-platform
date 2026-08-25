@@ -551,3 +551,98 @@ class AnalyticsRelationalComponent25Response(AnalyticsRelationalComponent25Base)
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class AnalyticsRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AnalyticsRelationalComponent26Create(AnalyticsRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class AnalyticsRelationalComponent26Response(AnalyticsRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AnalyticsRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AnalyticsRelationalComponent27Create(AnalyticsRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class AnalyticsRelationalComponent27Response(AnalyticsRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AnalyticsRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AnalyticsRelationalComponent28Create(AnalyticsRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class AnalyticsRelationalComponent28Response(AnalyticsRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AnalyticsRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AnalyticsRelationalComponent29Create(AnalyticsRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class AnalyticsRelationalComponent29Response(AnalyticsRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AnalyticsRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AnalyticsRelationalComponent30Create(AnalyticsRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class AnalyticsRelationalComponent30Response(AnalyticsRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

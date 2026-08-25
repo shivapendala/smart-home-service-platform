@@ -505,3 +505,98 @@ class CustomerFeedbackRelationalComponent25Response(CustomerFeedbackRelationalCo
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class CustomerFeedbackRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerFeedbackRelationalComponent26Create(CustomerFeedbackRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerFeedbackRelationalComponent26Response(CustomerFeedbackRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerFeedbackRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerFeedbackRelationalComponent27Create(CustomerFeedbackRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerFeedbackRelationalComponent27Response(CustomerFeedbackRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerFeedbackRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerFeedbackRelationalComponent28Create(CustomerFeedbackRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerFeedbackRelationalComponent28Response(CustomerFeedbackRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerFeedbackRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerFeedbackRelationalComponent29Create(CustomerFeedbackRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerFeedbackRelationalComponent29Response(CustomerFeedbackRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerFeedbackRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerFeedbackRelationalComponent30Create(CustomerFeedbackRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerFeedbackRelationalComponent30Response(CustomerFeedbackRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

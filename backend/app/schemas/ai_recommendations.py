@@ -587,3 +587,98 @@ ApplianceHealthRiskResponse = DiagnosticWizardResponse
 
 
 HealthRiskAssessmentResponse = DiagnosticWizardResponse
+
+class AiRecommendationsRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AiRecommendationsRelationalComponent26Create(AiRecommendationsRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class AiRecommendationsRelationalComponent26Response(AiRecommendationsRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AiRecommendationsRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AiRecommendationsRelationalComponent27Create(AiRecommendationsRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class AiRecommendationsRelationalComponent27Response(AiRecommendationsRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AiRecommendationsRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AiRecommendationsRelationalComponent28Create(AiRecommendationsRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class AiRecommendationsRelationalComponent28Response(AiRecommendationsRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AiRecommendationsRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AiRecommendationsRelationalComponent29Create(AiRecommendationsRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class AiRecommendationsRelationalComponent29Response(AiRecommendationsRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AiRecommendationsRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AiRecommendationsRelationalComponent30Create(AiRecommendationsRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class AiRecommendationsRelationalComponent30Response(AiRecommendationsRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

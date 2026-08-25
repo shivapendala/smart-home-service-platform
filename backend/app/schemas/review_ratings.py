@@ -505,3 +505,98 @@ class ReviewRatingsRelationalComponent25Response(ReviewRatingsRelationalComponen
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class ReviewRatingsRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ReviewRatingsRelationalComponent26Create(ReviewRatingsRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class ReviewRatingsRelationalComponent26Response(ReviewRatingsRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ReviewRatingsRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ReviewRatingsRelationalComponent27Create(ReviewRatingsRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class ReviewRatingsRelationalComponent27Response(ReviewRatingsRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ReviewRatingsRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ReviewRatingsRelationalComponent28Create(ReviewRatingsRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class ReviewRatingsRelationalComponent28Response(ReviewRatingsRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ReviewRatingsRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ReviewRatingsRelationalComponent29Create(ReviewRatingsRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class ReviewRatingsRelationalComponent29Response(ReviewRatingsRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ReviewRatingsRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ReviewRatingsRelationalComponent30Create(ReviewRatingsRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class ReviewRatingsRelationalComponent30Response(ReviewRatingsRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

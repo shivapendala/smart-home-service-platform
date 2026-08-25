@@ -535,3 +535,98 @@ class CustomerPortalRelationalComponent25Response(CustomerPortalRelationalCompon
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class CustomerPortalRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerPortalRelationalComponent26Create(CustomerPortalRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerPortalRelationalComponent26Response(CustomerPortalRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerPortalRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerPortalRelationalComponent27Create(CustomerPortalRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerPortalRelationalComponent27Response(CustomerPortalRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerPortalRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerPortalRelationalComponent28Create(CustomerPortalRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerPortalRelationalComponent28Response(CustomerPortalRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerPortalRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerPortalRelationalComponent29Create(CustomerPortalRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerPortalRelationalComponent29Response(CustomerPortalRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class CustomerPortalRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class CustomerPortalRelationalComponent30Create(CustomerPortalRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class CustomerPortalRelationalComponent30Response(CustomerPortalRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

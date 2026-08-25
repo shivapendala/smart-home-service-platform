@@ -594,3 +594,98 @@ class TechnicianMgmtRelationalComponent25Response(TechnicianMgmtRelationalCompon
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent26Create(TechnicianMgmtRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent26Response(TechnicianMgmtRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent27Create(TechnicianMgmtRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent27Response(TechnicianMgmtRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent28Create(TechnicianMgmtRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent28Response(TechnicianMgmtRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent29Create(TechnicianMgmtRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent29Response(TechnicianMgmtRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent30Create(TechnicianMgmtRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent30Response(TechnicianMgmtRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

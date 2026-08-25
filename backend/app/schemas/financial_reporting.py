@@ -505,3 +505,98 @@ class FinancialReportingRelationalComponent25Response(FinancialReportingRelation
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class FinancialReportingRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FinancialReportingRelationalComponent26Create(FinancialReportingRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class FinancialReportingRelationalComponent26Response(FinancialReportingRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FinancialReportingRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FinancialReportingRelationalComponent27Create(FinancialReportingRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class FinancialReportingRelationalComponent27Response(FinancialReportingRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FinancialReportingRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FinancialReportingRelationalComponent28Create(FinancialReportingRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class FinancialReportingRelationalComponent28Response(FinancialReportingRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FinancialReportingRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FinancialReportingRelationalComponent29Create(FinancialReportingRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class FinancialReportingRelationalComponent29Response(FinancialReportingRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class FinancialReportingRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class FinancialReportingRelationalComponent30Create(FinancialReportingRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class FinancialReportingRelationalComponent30Response(FinancialReportingRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

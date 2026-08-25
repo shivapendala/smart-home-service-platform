@@ -434,3 +434,78 @@ class SystemHealthService:
         if master_entity_id:
             query = query.filter(SystemHealthRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: SystemHealthRelationalComponent26Create) -> SystemHealthRelationalComponent26:
+        comp = SystemHealthRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[SystemHealthRelationalComponent26]:
+        query = db.query(SystemHealthRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(SystemHealthRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: SystemHealthRelationalComponent27Create) -> SystemHealthRelationalComponent27:
+        comp = SystemHealthRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[SystemHealthRelationalComponent27]:
+        query = db.query(SystemHealthRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(SystemHealthRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: SystemHealthRelationalComponent28Create) -> SystemHealthRelationalComponent28:
+        comp = SystemHealthRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[SystemHealthRelationalComponent28]:
+        query = db.query(SystemHealthRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(SystemHealthRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: SystemHealthRelationalComponent29Create) -> SystemHealthRelationalComponent29:
+        comp = SystemHealthRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[SystemHealthRelationalComponent29]:
+        query = db.query(SystemHealthRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(SystemHealthRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: SystemHealthRelationalComponent30Create) -> SystemHealthRelationalComponent30:
+        comp = SystemHealthRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[SystemHealthRelationalComponent30]:
+        query = db.query(SystemHealthRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(SystemHealthRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

@@ -57,3 +57,4 @@ def submit_survey(payload: dict, db: Session = Depends(get_db), current_user: Us
 @router.post("/master", response_model=SupportTicketsMasterEntityResponse, status_code=status.HTTP_201_CREATED)
 def create_master_entity(entity_in: SupportTicketsMasterEntityCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_active_user)):
     return SupportTicketsService.create_master_entity(db, current_user.id, entity_in)
+

@@ -434,3 +434,78 @@ class CustomerFeedbackService:
         if master_entity_id:
             query = query.filter(CustomerFeedbackRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: CustomerFeedbackRelationalComponent26Create) -> CustomerFeedbackRelationalComponent26:
+        comp = CustomerFeedbackRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerFeedbackRelationalComponent26]:
+        query = db.query(CustomerFeedbackRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(CustomerFeedbackRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: CustomerFeedbackRelationalComponent27Create) -> CustomerFeedbackRelationalComponent27:
+        comp = CustomerFeedbackRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerFeedbackRelationalComponent27]:
+        query = db.query(CustomerFeedbackRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(CustomerFeedbackRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: CustomerFeedbackRelationalComponent28Create) -> CustomerFeedbackRelationalComponent28:
+        comp = CustomerFeedbackRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerFeedbackRelationalComponent28]:
+        query = db.query(CustomerFeedbackRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(CustomerFeedbackRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: CustomerFeedbackRelationalComponent29Create) -> CustomerFeedbackRelationalComponent29:
+        comp = CustomerFeedbackRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerFeedbackRelationalComponent29]:
+        query = db.query(CustomerFeedbackRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(CustomerFeedbackRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: CustomerFeedbackRelationalComponent30Create) -> CustomerFeedbackRelationalComponent30:
+        comp = CustomerFeedbackRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerFeedbackRelationalComponent30]:
+        query = db.query(CustomerFeedbackRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(CustomerFeedbackRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

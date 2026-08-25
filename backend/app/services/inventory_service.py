@@ -434,3 +434,78 @@ class InventoryService:
         if master_entity_id:
             query = query.filter(InventoryRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: InventoryRelationalComponent26Create) -> InventoryRelationalComponent26:
+        comp = InventoryRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[InventoryRelationalComponent26]:
+        query = db.query(InventoryRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(InventoryRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: InventoryRelationalComponent27Create) -> InventoryRelationalComponent27:
+        comp = InventoryRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[InventoryRelationalComponent27]:
+        query = db.query(InventoryRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(InventoryRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: InventoryRelationalComponent28Create) -> InventoryRelationalComponent28:
+        comp = InventoryRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[InventoryRelationalComponent28]:
+        query = db.query(InventoryRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(InventoryRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: InventoryRelationalComponent29Create) -> InventoryRelationalComponent29:
+        comp = InventoryRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[InventoryRelationalComponent29]:
+        query = db.query(InventoryRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(InventoryRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: InventoryRelationalComponent30Create) -> InventoryRelationalComponent30:
+        comp = InventoryRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[InventoryRelationalComponent30]:
+        query = db.query(InventoryRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(InventoryRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

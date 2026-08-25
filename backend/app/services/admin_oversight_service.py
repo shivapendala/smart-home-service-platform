@@ -434,3 +434,78 @@ class AdminOversightService:
         if master_entity_id:
             query = query.filter(AdminOversightRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: AdminOversightRelationalComponent26Create) -> AdminOversightRelationalComponent26:
+        comp = AdminOversightRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[AdminOversightRelationalComponent26]:
+        query = db.query(AdminOversightRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(AdminOversightRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: AdminOversightRelationalComponent27Create) -> AdminOversightRelationalComponent27:
+        comp = AdminOversightRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[AdminOversightRelationalComponent27]:
+        query = db.query(AdminOversightRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(AdminOversightRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: AdminOversightRelationalComponent28Create) -> AdminOversightRelationalComponent28:
+        comp = AdminOversightRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[AdminOversightRelationalComponent28]:
+        query = db.query(AdminOversightRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(AdminOversightRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: AdminOversightRelationalComponent29Create) -> AdminOversightRelationalComponent29:
+        comp = AdminOversightRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[AdminOversightRelationalComponent29]:
+        query = db.query(AdminOversightRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(AdminOversightRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: AdminOversightRelationalComponent30Create) -> AdminOversightRelationalComponent30:
+        comp = AdminOversightRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[AdminOversightRelationalComponent30]:
+        query = db.query(AdminOversightRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(AdminOversightRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

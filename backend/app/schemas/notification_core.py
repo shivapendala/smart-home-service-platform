@@ -505,3 +505,98 @@ class NotificationCoreRelationalComponent25Response(NotificationCoreRelationalCo
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class NotificationCoreRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class NotificationCoreRelationalComponent26Create(NotificationCoreRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class NotificationCoreRelationalComponent26Response(NotificationCoreRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class NotificationCoreRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class NotificationCoreRelationalComponent27Create(NotificationCoreRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class NotificationCoreRelationalComponent27Response(NotificationCoreRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class NotificationCoreRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class NotificationCoreRelationalComponent28Create(NotificationCoreRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class NotificationCoreRelationalComponent28Response(NotificationCoreRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class NotificationCoreRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class NotificationCoreRelationalComponent29Create(NotificationCoreRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class NotificationCoreRelationalComponent29Response(NotificationCoreRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class NotificationCoreRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class NotificationCoreRelationalComponent30Create(NotificationCoreRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class NotificationCoreRelationalComponent30Response(NotificationCoreRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

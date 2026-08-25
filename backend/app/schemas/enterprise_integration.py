@@ -505,3 +505,98 @@ class EnterpriseIntegrationRelationalComponent25Response(EnterpriseIntegrationRe
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class EnterpriseIntegrationRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class EnterpriseIntegrationRelationalComponent26Create(EnterpriseIntegrationRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class EnterpriseIntegrationRelationalComponent26Response(EnterpriseIntegrationRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class EnterpriseIntegrationRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class EnterpriseIntegrationRelationalComponent27Create(EnterpriseIntegrationRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class EnterpriseIntegrationRelationalComponent27Response(EnterpriseIntegrationRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class EnterpriseIntegrationRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class EnterpriseIntegrationRelationalComponent28Create(EnterpriseIntegrationRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class EnterpriseIntegrationRelationalComponent28Response(EnterpriseIntegrationRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class EnterpriseIntegrationRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class EnterpriseIntegrationRelationalComponent29Create(EnterpriseIntegrationRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class EnterpriseIntegrationRelationalComponent29Response(EnterpriseIntegrationRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class EnterpriseIntegrationRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class EnterpriseIntegrationRelationalComponent30Create(EnterpriseIntegrationRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class EnterpriseIntegrationRelationalComponent30Response(EnterpriseIntegrationRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

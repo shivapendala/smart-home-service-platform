@@ -564,3 +564,98 @@ class AuditSecurityRelationalComponent25Response(AuditSecurityRelationalComponen
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class AuditSecurityRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AuditSecurityRelationalComponent26Create(AuditSecurityRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class AuditSecurityRelationalComponent26Response(AuditSecurityRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AuditSecurityRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AuditSecurityRelationalComponent27Create(AuditSecurityRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class AuditSecurityRelationalComponent27Response(AuditSecurityRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AuditSecurityRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AuditSecurityRelationalComponent28Create(AuditSecurityRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class AuditSecurityRelationalComponent28Response(AuditSecurityRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AuditSecurityRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AuditSecurityRelationalComponent29Create(AuditSecurityRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class AuditSecurityRelationalComponent29Response(AuditSecurityRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AuditSecurityRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AuditSecurityRelationalComponent30Create(AuditSecurityRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class AuditSecurityRelationalComponent30Response(AuditSecurityRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

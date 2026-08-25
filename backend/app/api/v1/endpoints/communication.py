@@ -47,3 +47,4 @@ def list_comm_logs(db: Session = Depends(get_db), current_user: User = Depends(g
 @router.post("/master", response_model=CommunicationMasterEntityResponse, status_code=status.HTTP_201_CREATED)
 def create_master_entity(entity_in: CommunicationMasterEntityCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_active_user)):
     return CommunicationService.create_master_entity(db, current_user.id, entity_in)
+

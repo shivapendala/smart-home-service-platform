@@ -434,3 +434,78 @@ class PaymentsBillingService:
         if master_entity_id:
             query = query.filter(PaymentsBillingRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: PaymentsBillingRelationalComponent26Create) -> PaymentsBillingRelationalComponent26:
+        comp = PaymentsBillingRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[PaymentsBillingRelationalComponent26]:
+        query = db.query(PaymentsBillingRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(PaymentsBillingRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: PaymentsBillingRelationalComponent27Create) -> PaymentsBillingRelationalComponent27:
+        comp = PaymentsBillingRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[PaymentsBillingRelationalComponent27]:
+        query = db.query(PaymentsBillingRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(PaymentsBillingRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: PaymentsBillingRelationalComponent28Create) -> PaymentsBillingRelationalComponent28:
+        comp = PaymentsBillingRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[PaymentsBillingRelationalComponent28]:
+        query = db.query(PaymentsBillingRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(PaymentsBillingRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: PaymentsBillingRelationalComponent29Create) -> PaymentsBillingRelationalComponent29:
+        comp = PaymentsBillingRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[PaymentsBillingRelationalComponent29]:
+        query = db.query(PaymentsBillingRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(PaymentsBillingRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: PaymentsBillingRelationalComponent30Create) -> PaymentsBillingRelationalComponent30:
+        comp = PaymentsBillingRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[PaymentsBillingRelationalComponent30]:
+        query = db.query(PaymentsBillingRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(PaymentsBillingRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

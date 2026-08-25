@@ -505,3 +505,98 @@ class PlatformGovernanceRelationalComponent25Response(PlatformGovernanceRelation
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class PlatformGovernanceRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PlatformGovernanceRelationalComponent26Create(PlatformGovernanceRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class PlatformGovernanceRelationalComponent26Response(PlatformGovernanceRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PlatformGovernanceRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PlatformGovernanceRelationalComponent27Create(PlatformGovernanceRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class PlatformGovernanceRelationalComponent27Response(PlatformGovernanceRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PlatformGovernanceRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PlatformGovernanceRelationalComponent28Create(PlatformGovernanceRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class PlatformGovernanceRelationalComponent28Response(PlatformGovernanceRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PlatformGovernanceRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PlatformGovernanceRelationalComponent29Create(PlatformGovernanceRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class PlatformGovernanceRelationalComponent29Response(PlatformGovernanceRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class PlatformGovernanceRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class PlatformGovernanceRelationalComponent30Create(PlatformGovernanceRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class PlatformGovernanceRelationalComponent30Response(PlatformGovernanceRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

@@ -434,3 +434,78 @@ class BookingEngineService:
         if master_entity_id:
             query = query.filter(BookingEngineRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: BookingEngineRelationalComponent26Create) -> BookingEngineRelationalComponent26:
+        comp = BookingEngineRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[BookingEngineRelationalComponent26]:
+        query = db.query(BookingEngineRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(BookingEngineRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: BookingEngineRelationalComponent27Create) -> BookingEngineRelationalComponent27:
+        comp = BookingEngineRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[BookingEngineRelationalComponent27]:
+        query = db.query(BookingEngineRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(BookingEngineRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: BookingEngineRelationalComponent28Create) -> BookingEngineRelationalComponent28:
+        comp = BookingEngineRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[BookingEngineRelationalComponent28]:
+        query = db.query(BookingEngineRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(BookingEngineRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: BookingEngineRelationalComponent29Create) -> BookingEngineRelationalComponent29:
+        comp = BookingEngineRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[BookingEngineRelationalComponent29]:
+        query = db.query(BookingEngineRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(BookingEngineRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: BookingEngineRelationalComponent30Create) -> BookingEngineRelationalComponent30:
+        comp = BookingEngineRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[BookingEngineRelationalComponent30]:
+        query = db.query(BookingEngineRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(BookingEngineRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

@@ -434,3 +434,78 @@ class WorkflowAutomationService:
         if master_entity_id:
             query = query.filter(WorkflowAutomationRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: WorkflowAutomationRelationalComponent26Create) -> WorkflowAutomationRelationalComponent26:
+        comp = WorkflowAutomationRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[WorkflowAutomationRelationalComponent26]:
+        query = db.query(WorkflowAutomationRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(WorkflowAutomationRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: WorkflowAutomationRelationalComponent27Create) -> WorkflowAutomationRelationalComponent27:
+        comp = WorkflowAutomationRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[WorkflowAutomationRelationalComponent27]:
+        query = db.query(WorkflowAutomationRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(WorkflowAutomationRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: WorkflowAutomationRelationalComponent28Create) -> WorkflowAutomationRelationalComponent28:
+        comp = WorkflowAutomationRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[WorkflowAutomationRelationalComponent28]:
+        query = db.query(WorkflowAutomationRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(WorkflowAutomationRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: WorkflowAutomationRelationalComponent29Create) -> WorkflowAutomationRelationalComponent29:
+        comp = WorkflowAutomationRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[WorkflowAutomationRelationalComponent29]:
+        query = db.query(WorkflowAutomationRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(WorkflowAutomationRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: WorkflowAutomationRelationalComponent30Create) -> WorkflowAutomationRelationalComponent30:
+        comp = WorkflowAutomationRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[WorkflowAutomationRelationalComponent30]:
+        query = db.query(WorkflowAutomationRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(WorkflowAutomationRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

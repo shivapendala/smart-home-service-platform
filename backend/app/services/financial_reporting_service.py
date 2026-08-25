@@ -434,3 +434,78 @@ class FinancialReportingService:
         if master_entity_id:
             query = query.filter(FinancialReportingRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: FinancialReportingRelationalComponent26Create) -> FinancialReportingRelationalComponent26:
+        comp = FinancialReportingRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[FinancialReportingRelationalComponent26]:
+        query = db.query(FinancialReportingRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(FinancialReportingRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: FinancialReportingRelationalComponent27Create) -> FinancialReportingRelationalComponent27:
+        comp = FinancialReportingRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[FinancialReportingRelationalComponent27]:
+        query = db.query(FinancialReportingRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(FinancialReportingRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: FinancialReportingRelationalComponent28Create) -> FinancialReportingRelationalComponent28:
+        comp = FinancialReportingRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[FinancialReportingRelationalComponent28]:
+        query = db.query(FinancialReportingRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(FinancialReportingRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: FinancialReportingRelationalComponent29Create) -> FinancialReportingRelationalComponent29:
+        comp = FinancialReportingRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[FinancialReportingRelationalComponent29]:
+        query = db.query(FinancialReportingRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(FinancialReportingRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: FinancialReportingRelationalComponent30Create) -> FinancialReportingRelationalComponent30:
+        comp = FinancialReportingRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[FinancialReportingRelationalComponent30]:
+        query = db.query(FinancialReportingRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(FinancialReportingRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

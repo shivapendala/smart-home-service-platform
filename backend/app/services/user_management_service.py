@@ -434,3 +434,78 @@ class UserManagementService:
         if master_entity_id:
             query = query.filter(UserManagementRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: UserManagementRelationalComponent26Create) -> UserManagementRelationalComponent26:
+        comp = UserManagementRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[UserManagementRelationalComponent26]:
+        query = db.query(UserManagementRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(UserManagementRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: UserManagementRelationalComponent27Create) -> UserManagementRelationalComponent27:
+        comp = UserManagementRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[UserManagementRelationalComponent27]:
+        query = db.query(UserManagementRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(UserManagementRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: UserManagementRelationalComponent28Create) -> UserManagementRelationalComponent28:
+        comp = UserManagementRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[UserManagementRelationalComponent28]:
+        query = db.query(UserManagementRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(UserManagementRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: UserManagementRelationalComponent29Create) -> UserManagementRelationalComponent29:
+        comp = UserManagementRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[UserManagementRelationalComponent29]:
+        query = db.query(UserManagementRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(UserManagementRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: UserManagementRelationalComponent30Create) -> UserManagementRelationalComponent30:
+        comp = UserManagementRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[UserManagementRelationalComponent30]:
+        query = db.query(UserManagementRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(UserManagementRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

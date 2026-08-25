@@ -434,3 +434,78 @@ class CommunicationService:
         if master_entity_id:
             query = query.filter(CommunicationRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: CommunicationRelationalComponent26Create) -> CommunicationRelationalComponent26:
+        comp = CommunicationRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[CommunicationRelationalComponent26]:
+        query = db.query(CommunicationRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(CommunicationRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: CommunicationRelationalComponent27Create) -> CommunicationRelationalComponent27:
+        comp = CommunicationRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[CommunicationRelationalComponent27]:
+        query = db.query(CommunicationRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(CommunicationRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: CommunicationRelationalComponent28Create) -> CommunicationRelationalComponent28:
+        comp = CommunicationRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[CommunicationRelationalComponent28]:
+        query = db.query(CommunicationRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(CommunicationRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: CommunicationRelationalComponent29Create) -> CommunicationRelationalComponent29:
+        comp = CommunicationRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[CommunicationRelationalComponent29]:
+        query = db.query(CommunicationRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(CommunicationRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: CommunicationRelationalComponent30Create) -> CommunicationRelationalComponent30:
+        comp = CommunicationRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[CommunicationRelationalComponent30]:
+        query = db.query(CommunicationRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(CommunicationRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

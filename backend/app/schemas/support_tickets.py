@@ -555,3 +555,98 @@ class SupportTicketsRelationalComponent25Response(SupportTicketsRelationalCompon
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class SupportTicketsRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SupportTicketsRelationalComponent26Create(SupportTicketsRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class SupportTicketsRelationalComponent26Response(SupportTicketsRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SupportTicketsRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SupportTicketsRelationalComponent27Create(SupportTicketsRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class SupportTicketsRelationalComponent27Response(SupportTicketsRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SupportTicketsRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SupportTicketsRelationalComponent28Create(SupportTicketsRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class SupportTicketsRelationalComponent28Response(SupportTicketsRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SupportTicketsRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SupportTicketsRelationalComponent29Create(SupportTicketsRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class SupportTicketsRelationalComponent29Response(SupportTicketsRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SupportTicketsRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SupportTicketsRelationalComponent30Create(SupportTicketsRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class SupportTicketsRelationalComponent30Response(SupportTicketsRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

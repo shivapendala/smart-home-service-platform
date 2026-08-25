@@ -478,3 +478,93 @@ class PlatformGovernanceRelationalComponent25(Base):
 
     def __repr__(self) -> str:
         return f"<PlatformGovernanceRelationalComponent25(id={self.id}, name='{self.component_name}')>"
+
+class PlatformGovernanceRelationalComponent26(Base):
+    __tablename__ = "platform_governance_relational_components_26"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    master_entity_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("platform_governance_master_entities.id", ondelete="CASCADE"), nullable=True, index=True)
+    component_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    component_type: Mapped[str] = mapped_column(String(100), default="STANDARD", nullable=False)
+    metric_value: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
+    cost_factor: Mapped[float] = mapped_column(Float, default=1.0, nullable=False)
+    sequence_order: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    status_flag: Mapped[str] = mapped_column(String(50), default="ENABLED", nullable=False)
+    notes_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<PlatformGovernanceRelationalComponent26(id={self.id}, name='{self.component_name}')>"
+
+class PlatformGovernanceRelationalComponent27(Base):
+    __tablename__ = "platform_governance_relational_components_27"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    master_entity_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("platform_governance_master_entities.id", ondelete="CASCADE"), nullable=True, index=True)
+    component_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    component_type: Mapped[str] = mapped_column(String(100), default="STANDARD", nullable=False)
+    metric_value: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
+    cost_factor: Mapped[float] = mapped_column(Float, default=1.0, nullable=False)
+    sequence_order: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    status_flag: Mapped[str] = mapped_column(String(50), default="ENABLED", nullable=False)
+    notes_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<PlatformGovernanceRelationalComponent27(id={self.id}, name='{self.component_name}')>"
+
+class PlatformGovernanceRelationalComponent28(Base):
+    __tablename__ = "platform_governance_relational_components_28"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    master_entity_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("platform_governance_master_entities.id", ondelete="CASCADE"), nullable=True, index=True)
+    component_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    component_type: Mapped[str] = mapped_column(String(100), default="STANDARD", nullable=False)
+    metric_value: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
+    cost_factor: Mapped[float] = mapped_column(Float, default=1.0, nullable=False)
+    sequence_order: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    status_flag: Mapped[str] = mapped_column(String(50), default="ENABLED", nullable=False)
+    notes_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<PlatformGovernanceRelationalComponent28(id={self.id}, name='{self.component_name}')>"
+
+class PlatformGovernanceRelationalComponent29(Base):
+    __tablename__ = "platform_governance_relational_components_29"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    master_entity_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("platform_governance_master_entities.id", ondelete="CASCADE"), nullable=True, index=True)
+    component_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    component_type: Mapped[str] = mapped_column(String(100), default="STANDARD", nullable=False)
+    metric_value: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
+    cost_factor: Mapped[float] = mapped_column(Float, default=1.0, nullable=False)
+    sequence_order: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    status_flag: Mapped[str] = mapped_column(String(50), default="ENABLED", nullable=False)
+    notes_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<PlatformGovernanceRelationalComponent29(id={self.id}, name='{self.component_name}')>"
+
+class PlatformGovernanceRelationalComponent30(Base):
+    __tablename__ = "platform_governance_relational_components_30"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    master_entity_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("platform_governance_master_entities.id", ondelete="CASCADE"), nullable=True, index=True)
+    component_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    component_type: Mapped[str] = mapped_column(String(100), default="STANDARD", nullable=False)
+    metric_value: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
+    cost_factor: Mapped[float] = mapped_column(Float, default=1.0, nullable=False)
+    sequence_order: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    status_flag: Mapped[str] = mapped_column(String(50), default="ENABLED", nullable=False)
+    notes_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<PlatformGovernanceRelationalComponent30(id={self.id}, name='{self.component_name}')>"

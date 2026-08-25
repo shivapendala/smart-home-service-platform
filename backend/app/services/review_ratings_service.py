@@ -434,3 +434,78 @@ class ReviewRatingsService:
         if master_entity_id:
             query = query.filter(ReviewRatingsRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: ReviewRatingsRelationalComponent26Create) -> ReviewRatingsRelationalComponent26:
+        comp = ReviewRatingsRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[ReviewRatingsRelationalComponent26]:
+        query = db.query(ReviewRatingsRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(ReviewRatingsRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: ReviewRatingsRelationalComponent27Create) -> ReviewRatingsRelationalComponent27:
+        comp = ReviewRatingsRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[ReviewRatingsRelationalComponent27]:
+        query = db.query(ReviewRatingsRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(ReviewRatingsRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: ReviewRatingsRelationalComponent28Create) -> ReviewRatingsRelationalComponent28:
+        comp = ReviewRatingsRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[ReviewRatingsRelationalComponent28]:
+        query = db.query(ReviewRatingsRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(ReviewRatingsRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: ReviewRatingsRelationalComponent29Create) -> ReviewRatingsRelationalComponent29:
+        comp = ReviewRatingsRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[ReviewRatingsRelationalComponent29]:
+        query = db.query(ReviewRatingsRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(ReviewRatingsRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: ReviewRatingsRelationalComponent30Create) -> ReviewRatingsRelationalComponent30:
+        comp = ReviewRatingsRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[ReviewRatingsRelationalComponent30]:
+        query = db.query(ReviewRatingsRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(ReviewRatingsRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

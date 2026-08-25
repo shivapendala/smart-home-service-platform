@@ -434,3 +434,78 @@ class AnalyticsService:
         if master_entity_id:
             query = query.filter(AnalyticsRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: AnalyticsRelationalComponent26Create) -> AnalyticsRelationalComponent26:
+        comp = AnalyticsRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[AnalyticsRelationalComponent26]:
+        query = db.query(AnalyticsRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(AnalyticsRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: AnalyticsRelationalComponent27Create) -> AnalyticsRelationalComponent27:
+        comp = AnalyticsRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[AnalyticsRelationalComponent27]:
+        query = db.query(AnalyticsRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(AnalyticsRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: AnalyticsRelationalComponent28Create) -> AnalyticsRelationalComponent28:
+        comp = AnalyticsRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[AnalyticsRelationalComponent28]:
+        query = db.query(AnalyticsRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(AnalyticsRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: AnalyticsRelationalComponent29Create) -> AnalyticsRelationalComponent29:
+        comp = AnalyticsRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[AnalyticsRelationalComponent29]:
+        query = db.query(AnalyticsRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(AnalyticsRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: AnalyticsRelationalComponent30Create) -> AnalyticsRelationalComponent30:
+        comp = AnalyticsRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[AnalyticsRelationalComponent30]:
+        query = db.query(AnalyticsRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(AnalyticsRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

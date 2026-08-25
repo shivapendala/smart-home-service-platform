@@ -434,3 +434,78 @@ class SupportTicketsService:
         if master_entity_id:
             query = query.filter(SupportTicketsRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: SupportTicketsRelationalComponent26Create) -> SupportTicketsRelationalComponent26:
+        comp = SupportTicketsRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[SupportTicketsRelationalComponent26]:
+        query = db.query(SupportTicketsRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(SupportTicketsRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: SupportTicketsRelationalComponent27Create) -> SupportTicketsRelationalComponent27:
+        comp = SupportTicketsRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[SupportTicketsRelationalComponent27]:
+        query = db.query(SupportTicketsRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(SupportTicketsRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: SupportTicketsRelationalComponent28Create) -> SupportTicketsRelationalComponent28:
+        comp = SupportTicketsRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[SupportTicketsRelationalComponent28]:
+        query = db.query(SupportTicketsRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(SupportTicketsRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: SupportTicketsRelationalComponent29Create) -> SupportTicketsRelationalComponent29:
+        comp = SupportTicketsRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[SupportTicketsRelationalComponent29]:
+        query = db.query(SupportTicketsRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(SupportTicketsRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: SupportTicketsRelationalComponent30Create) -> SupportTicketsRelationalComponent30:
+        comp = SupportTicketsRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[SupportTicketsRelationalComponent30]:
+        query = db.query(SupportTicketsRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(SupportTicketsRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

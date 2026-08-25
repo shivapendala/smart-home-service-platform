@@ -562,3 +562,98 @@ class BookingEngineRelationalComponent25Response(BookingEngineRelationalComponen
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent26Create(BookingEngineRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent26Response(BookingEngineRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent27Create(BookingEngineRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent27Response(BookingEngineRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent28Create(BookingEngineRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent28Response(BookingEngineRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent29Create(BookingEngineRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent29Response(BookingEngineRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent30Create(BookingEngineRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent30Response(BookingEngineRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

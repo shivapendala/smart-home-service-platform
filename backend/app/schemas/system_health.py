@@ -505,3 +505,98 @@ class SystemHealthRelationalComponent25Response(SystemHealthRelationalComponent2
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class SystemHealthRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SystemHealthRelationalComponent26Create(SystemHealthRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class SystemHealthRelationalComponent26Response(SystemHealthRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SystemHealthRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SystemHealthRelationalComponent27Create(SystemHealthRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class SystemHealthRelationalComponent27Response(SystemHealthRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SystemHealthRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SystemHealthRelationalComponent28Create(SystemHealthRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class SystemHealthRelationalComponent28Response(SystemHealthRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SystemHealthRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SystemHealthRelationalComponent29Create(SystemHealthRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class SystemHealthRelationalComponent29Response(SystemHealthRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SystemHealthRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class SystemHealthRelationalComponent30Create(SystemHealthRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class SystemHealthRelationalComponent30Response(SystemHealthRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

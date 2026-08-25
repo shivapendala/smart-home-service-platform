@@ -564,3 +564,98 @@ class WarrantyAmcRelationalComponent25Response(WarrantyAmcRelationalComponent25B
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class WarrantyAmcRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WarrantyAmcRelationalComponent26Create(WarrantyAmcRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class WarrantyAmcRelationalComponent26Response(WarrantyAmcRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WarrantyAmcRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WarrantyAmcRelationalComponent27Create(WarrantyAmcRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class WarrantyAmcRelationalComponent27Response(WarrantyAmcRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WarrantyAmcRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WarrantyAmcRelationalComponent28Create(WarrantyAmcRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class WarrantyAmcRelationalComponent28Response(WarrantyAmcRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WarrantyAmcRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WarrantyAmcRelationalComponent29Create(WarrantyAmcRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class WarrantyAmcRelationalComponent29Response(WarrantyAmcRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class WarrantyAmcRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class WarrantyAmcRelationalComponent30Create(WarrantyAmcRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class WarrantyAmcRelationalComponent30Response(WarrantyAmcRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

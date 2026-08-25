@@ -505,3 +505,98 @@ class AdminOversightRelationalComponent25Response(AdminOversightRelationalCompon
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class AdminOversightRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AdminOversightRelationalComponent26Create(AdminOversightRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class AdminOversightRelationalComponent26Response(AdminOversightRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AdminOversightRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AdminOversightRelationalComponent27Create(AdminOversightRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class AdminOversightRelationalComponent27Response(AdminOversightRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AdminOversightRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AdminOversightRelationalComponent28Create(AdminOversightRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class AdminOversightRelationalComponent28Response(AdminOversightRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AdminOversightRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AdminOversightRelationalComponent29Create(AdminOversightRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class AdminOversightRelationalComponent29Response(AdminOversightRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class AdminOversightRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class AdminOversightRelationalComponent30Create(AdminOversightRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class AdminOversightRelationalComponent30Response(AdminOversightRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

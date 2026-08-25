@@ -505,3 +505,98 @@ class VendorManagementRelationalComponent25Response(VendorManagementRelationalCo
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class VendorManagementRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class VendorManagementRelationalComponent26Create(VendorManagementRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class VendorManagementRelationalComponent26Response(VendorManagementRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class VendorManagementRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class VendorManagementRelationalComponent27Create(VendorManagementRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class VendorManagementRelationalComponent27Response(VendorManagementRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class VendorManagementRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class VendorManagementRelationalComponent28Create(VendorManagementRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class VendorManagementRelationalComponent28Response(VendorManagementRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class VendorManagementRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class VendorManagementRelationalComponent29Create(VendorManagementRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class VendorManagementRelationalComponent29Response(VendorManagementRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class VendorManagementRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class VendorManagementRelationalComponent30Create(VendorManagementRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class VendorManagementRelationalComponent30Response(VendorManagementRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

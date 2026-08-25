@@ -38,3 +38,4 @@ def record_part_usage(payload: dict, db: Session = Depends(get_db), current_user
 @router.post("/master", response_model=InventoryMasterEntityResponse, status_code=status.HTTP_201_CREATED)
 def create_master_entity(entity_in: InventoryMasterEntityCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_active_user)):
     return InventoryService.create_master_entity(db, current_user.id, entity_in)
+

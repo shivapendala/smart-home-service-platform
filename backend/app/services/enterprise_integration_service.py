@@ -434,3 +434,78 @@ class EnterpriseIntegrationService:
         if master_entity_id:
             query = query.filter(EnterpriseIntegrationRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: EnterpriseIntegrationRelationalComponent26Create) -> EnterpriseIntegrationRelationalComponent26:
+        comp = EnterpriseIntegrationRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[EnterpriseIntegrationRelationalComponent26]:
+        query = db.query(EnterpriseIntegrationRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(EnterpriseIntegrationRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: EnterpriseIntegrationRelationalComponent27Create) -> EnterpriseIntegrationRelationalComponent27:
+        comp = EnterpriseIntegrationRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[EnterpriseIntegrationRelationalComponent27]:
+        query = db.query(EnterpriseIntegrationRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(EnterpriseIntegrationRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: EnterpriseIntegrationRelationalComponent28Create) -> EnterpriseIntegrationRelationalComponent28:
+        comp = EnterpriseIntegrationRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[EnterpriseIntegrationRelationalComponent28]:
+        query = db.query(EnterpriseIntegrationRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(EnterpriseIntegrationRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: EnterpriseIntegrationRelationalComponent29Create) -> EnterpriseIntegrationRelationalComponent29:
+        comp = EnterpriseIntegrationRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[EnterpriseIntegrationRelationalComponent29]:
+        query = db.query(EnterpriseIntegrationRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(EnterpriseIntegrationRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: EnterpriseIntegrationRelationalComponent30Create) -> EnterpriseIntegrationRelationalComponent30:
+        comp = EnterpriseIntegrationRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[EnterpriseIntegrationRelationalComponent30]:
+        query = db.query(EnterpriseIntegrationRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(EnterpriseIntegrationRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()
