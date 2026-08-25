@@ -8,6 +8,7 @@ from app.core.config import settings
 from app.db.base import Base
 from app.db.session import engine
 from app.api.v1.api import api_router
+from app.api.v1.endpoints.auth import router as auth_router
 
 
 @asynccontextmanager
@@ -39,8 +40,9 @@ app.add_middleware(
 os.makedirs(settings.LOCAL_STORAGE_DIR, exist_ok=True)
 app.mount("/static/uploads", StaticFiles(directory=settings.LOCAL_STORAGE_DIR), name="uploads")
 
-# Mount API Routers
+# Mount API Routers under /api/v1 and alias /api/auth
 app.include_router(api_router, prefix=settings.API_V1_STR)
+app.include_router(auth_router, prefix="/api/auth", tags=["Authentication Direct"])
 
 
 @app.get("/health", tags=["Health"])
