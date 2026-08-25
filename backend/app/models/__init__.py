@@ -2,6 +2,8 @@ from app.models.user import User, UserRole
 from app.models.service import Category, Service
 from app.models.booking import Booking, BookingStatus, Address, BookingStatusHistory, ALLOWED_TRANSITIONS
 from app.models.technician import TechnicianProfile, ServicePhoto, ServiceNote, PhotoType
+from app.models.payment import Payment, PaymentStatus
+from app.models.review import Review, Complaint, ComplaintStatus
 
 __all__ = [
     "User",
@@ -17,4 +19,9 @@ __all__ = [
     "ServicePhoto",
     "ServiceNote",
     "PhotoType",
+    "Payment",
+    "PaymentStatus",
+    "Review",
+    "Complaint",
+    "ComplaintStatus",
 ]

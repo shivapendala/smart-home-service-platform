@@ -10,12 +10,12 @@ A production-style full-stack application connecting customers with certified te
 smart-home-service-platform/
 ├── backend/            # FastAPI Python Application
 │   ├── app/
-│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings, /technicians)
-│   │   ├── core/       # Security, JWT, config, storage abstractions
+│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings, /technicians, /admin)
+│   │   ├── core/       # Security, JWT, config, storage & payment abstractions
 │   │   ├── db/         # Session management & SQLAlchemy Base
-│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, TechnicianProfile, ServicePhoto, ServiceNote)
+│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, TechnicianProfile, Payment, Review, Complaint)
 │   │   ├── schemas/    # Pydantic data validation schemas
-│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking, Technician)
+│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking, Technician, Admin)
 │   └── tests/          # Pytest test suite
 ├── frontend/           # React + TypeScript + Vite Web App
 │   ├── src/
@@ -40,23 +40,23 @@ smart-home-service-platform/
 
 ## 🔐 User Roles & Scoped Workflows
 
-- **`CUSTOMER`**: Browse service catalog, create delivery addresses, schedule home visits, describe problems, track live booking status, cancel bookings, view personal booking history.
-- **`TECHNICIAN`**: Toggle online availability, view assigned job dispatches (New Assigned, Today's Jobs, Active Job, Completed Jobs), execute workflow status actions, write diagnostic notes, and upload before/after photos with file security validation. (Strict security isolation: Technicians may only access bookings assigned to them).
-- **`ADMIN`**: Platform control center, create/update/deactivate catalog services, manage categories, oversight on technician directory & dispatch assignments.
+- **`CUSTOMER`**: Browse catalog, schedule visits, track live progress, make payments, submit 1-5 star reviews (on `COMPLETED` jobs), file complaints, cancel bookings.
+- **`TECHNICIAN`**: Toggle availability, manage dispatch queues (`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`), attach diagnostic notes, upload before/after photos with file security validation.
+- **`ADMIN`**: Full platform oversight — Dashboard KPI cards (Total Customers, Technicians, Today's Bookings, Pending, Active, Completed, Cancelled, Revenue Summary), customer/technician directory management, manual booking assignments, payment refund controls, review statistics, and complaint resolution ticketing.
 
 ---
 
-## 🔧 Technician Job Workflow & File Security
+## 💳 Payments Abstraction & State Machine
 
-### Job State Transitions
-`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`
-(Or `REJECT` ➔ returns job to `PENDING` queue for re-assignment).
+- **Abstraction**: `PaymentProvider` ABC with `MockPaymentProvider` implementation (no real payment secrets in Git).
+- **Payment States**: `PENDING` ➔ `PAID` ➔ `REFUNDED` (or `FAILED`).
 
-### Safe Local File Upload Validation
-- **Supported File Types**: JPG, JPEG, PNG, WEBP (`ALLOWED_MIME_TYPES = image/jpeg, image/png, image/webp`).
-- **File Size Limit**: Strict 5MB ceiling per photo.
-- **Sanitization & Storage**: Filenames sanitized with UUIDs and saved via `LocalStorageProvider` abstraction.
-- **Authorization Enforcement**: Uploads restricted to assigned technician or booking owner customer (`403 Forbidden` on unauthorized attempts).
+---
+
+## ⭐️ Reviews & 🎫 Complaints System
+
+- **Reviews**: Allowed only after `COMPLETED` status. Prevents duplicate reviews per booking (`400 Bad Request`).
+- **Complaints**: Customers file tickets; Admins assign, update status (`OPEN`, `IN_PROGRESS`, `RESOLVED`, `REJECTED`), and record resolution notes.
 
 ---
 
@@ -111,15 +111,14 @@ docker-compose up --build
 
 ## 🧪 Testing Suite
 
-Run backend unit & technician workflow integration tests:
+Run full backend test suite:
 ```bash
 cd backend
 python -m pytest
 ```
 Testing covers:
-- `test_technician_complete_workflow` (`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`)
-- `test_technician_job_rejection`
-- `test_unrelated_technician_security_isolation` (403 Forbidden on unauthorized job access)
-- `test_photo_upload_and_validation` (Valid JPEG upload & invalid `.txt` rejection)
-- `test_service_notes`
-- All Auth, Catalog, Booking, and Storage test suites (29 passing tests)
+- `test_admin_dashboard_stats` (KPI calculations & 403 authorization check)
+- `test_payment_and_refund_workflow` (Payment creation `PAID`, block duplicate payment, Admin refund `REFUNDED`)
+- `test_review_creation_and_duplicate_block` (Completed status enforcement & block duplicate review)
+- `test_complaint_ticketing_and_admin_resolution` (Complaint filing & Admin resolution)
+- All Auth, Catalog, Booking, Technician, and Storage test suites (33 passing tests)

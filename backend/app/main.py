@@ -12,6 +12,7 @@ from app.api.v1.endpoints.auth import router as auth_router
 from app.api.v1.endpoints.services import router as services_router
 from app.api.v1.endpoints.bookings import router as bookings_router
 from app.api.v1.endpoints.technicians import router as technicians_router
+from app.api.v1.endpoints.admin import router as admin_router
 
 
 @asynccontextmanager
@@ -43,12 +44,14 @@ app.add_middleware(
 os.makedirs(settings.LOCAL_STORAGE_DIR, exist_ok=True)
 app.mount("/static/uploads", StaticFiles(directory=settings.LOCAL_STORAGE_DIR), name="uploads")
 
-# Mount API Routers under /api/v1 and direct aliases /api/auth, /api/services, /api/bookings, /api/technicians
+# Mount API Routers under /api/v1 and direct aliases /api/auth, /api/services, /api/bookings, /api/technicians, /api/admin, /api/payments, /api/reviews, /api/complaints
 app.include_router(api_router, prefix=settings.API_V1_STR)
 app.include_router(auth_router, prefix="/api/auth", tags=["Authentication Direct"])
 app.include_router(services_router, prefix="/api/services", tags=["Service Catalog Direct"])
 app.include_router(bookings_router, prefix="/api/bookings", tags=["Bookings Direct"])
 app.include_router(technicians_router, prefix="/api/technicians", tags=["Technicians Direct"])
+app.include_router(admin_router, prefix="/api/admin", tags=["Admin Direct"])
+app.include_router(admin_router, prefix="/api", tags=["Payments Reviews Complaints Direct"])
 
 
 @app.get("/health", tags=["Health"])
