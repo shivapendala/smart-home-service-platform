@@ -142,13 +142,13 @@ class CatalogService:
 
         seed_data = [
             {
-                "name": "AC Repair & Maintenance",
+                "name": "AC Repair & Installation",
                 "icon": "❄️",
-                "description": "Air conditioner servicing, gas refilling, filter cleaning, and compressor repair.",
+                "description": "Air conditioner servicing, gas refilling, filter cleaning, AC installation, and compressor repair.",
                 "services": [
-                    {"name": "AC Deep Servicing & Cleaning", "price": 49.00, "duration": 60, "desc": "Filter cleaning, coil washing, drain tray flushing, and health check."},
-                    {"name": "AC Gas Refill & Leak Fix", "price": 79.00, "duration": 90, "desc": "Comprehensive pressure check, leak detection, welding repair & full gas top-up."},
-                    {"name": "AC PCB & Compressor Repair", "price": 120.00, "duration": 120, "desc": "Circuit board troubleshooting, motor capacitor replacement & compressor service."}
+                    {"name": "AC Repair & Servicing", "price": 49.00, "duration": 60, "desc": "Deep filter cleaning, coil washing, drain flushing, and health diagnostic."},
+                    {"name": "AC Installation & Uninstallation", "price": 89.00, "duration": 120, "desc": "Complete split or window AC wall mounting, piping connection & testing."},
+                    {"name": "AC Gas Refill & Leak Fix", "price": 79.00, "duration": 90, "desc": "Comprehensive pressure check, leak detection, welding repair & full gas top-up."}
                 ]
             },
             {
@@ -156,35 +156,39 @@ class CatalogService:
                 "icon": "🧊",
                 "description": "Refrigeration cooling fix, thermostat setup, door seal replacement.",
                 "services": [
-                    {"name": "Fridge Cooling Issue Repair", "price": 55.00, "duration": 60, "desc": "Defrost sensor replacement, fan motor check & temperature regulation fix."},
-                    {"name": "Gas Charging & Compressor Fix", "price": 89.00, "duration": 90, "desc": "Refrigerant gas vacuuming, charging & compressor relay replacement."}
+                    {"name": "Refrigerator Repair & Maintenance", "price": 55.00, "duration": 60, "desc": "Defrost sensor replacement, fan motor check & temperature regulation fix."}
                 ]
             },
             {
-                "name": "Washing Machine Service",
+                "name": "Washing Machine Repair",
                 "icon": "🧺",
                 "description": "Front load & top load motor repair, drum balancing, water drain fix.",
                 "services": [
-                    {"name": "Washing Machine Full Checkup", "price": 39.00, "duration": 45, "desc": "Noise diagnostic, belt check, drum alignment & electrical safety test."},
-                    {"name": "Motor & Drain Pump Replacement", "price": 95.00, "duration": 90, "desc": "Original motor or drain pump replacement with warranty."}
+                    {"name": "Washing Machine Repair", "price": 45.00, "duration": 60, "desc": "Noise diagnostic, belt check, drum alignment & electrical safety test."}
                 ]
             },
             {
-                "name": "Plumbing Services",
+                "name": "Plumbing",
                 "icon": "🚰",
                 "description": "Pipe leakage repair, tap/faucet install, blockage removal.",
                 "services": [
-                    {"name": "Tap & Mixer Installation", "price": 29.00, "duration": 30, "desc": "Kitchen/bathroom faucet fitting, washer replacement & pressure check."},
-                    {"name": "Drain Cleaning & Unblocking", "price": 65.00, "duration": 60, "desc": "Clogged pipe clearing, trap cleaning & high-pressure flushing."}
+                    {"name": "Plumbing Repair & Fitting", "price": 35.00, "duration": 45, "desc": "Kitchen/bathroom faucet fitting, washer replacement & pipe leak fix."}
                 ]
             },
             {
-                "name": "Electrical Repairs",
+                "name": "Electrical",
                 "icon": "⚡",
                 "description": "Short circuit fixing, switchboard installation, light fittings.",
                 "services": [
-                    {"name": "Switchboard & Wiring Fix", "price": 35.00, "duration": 45, "desc": "Loose wire repair, MCB replacement & socket installation."},
-                    {"name": "Chandelier & Light Fitting", "price": 45.00, "duration": 60, "desc": "Ceiling light mounting, LED panel wiring & heavy fixture install."}
+                    {"name": "Electrical Repair & Wiring", "price": 35.00, "duration": 45, "desc": "Loose wire repair, MCB replacement & socket installation."}
+                ]
+            },
+            {
+                "name": "TV Repair",
+                "icon": "📺",
+                "description": "LED/LCD TV screen fix, mother board troubleshooting, power supply repair.",
+                "services": [
+                    {"name": "TV Repair & Display Service", "price": 65.00, "duration": 60, "desc": "Display panel diagnosis, backlight strip replacement, sound fix & wall mount."}
                 ]
             }
         ]

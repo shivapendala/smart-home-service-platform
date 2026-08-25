@@ -1,6 +1,6 @@
 # Smart Home Service Platform 🏡
 
-A production-style full-stack application connecting customers with certified technicians for home services (AC repair, refrigerator repair, washing machine repair, plumbing, electrical work, and household services).
+A production-style full-stack application connecting customers with certified technicians for home services (AC repair, AC installation, refrigerator repair, washing machine repair, plumbing, electrical work, TV repair, and household services).
 
 ---
 
@@ -13,10 +13,10 @@ smart-home-service-platform/
 │   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings)
 │   │   ├── core/       # Security, JWT, config, storage abstractions
 │   │   ├── db/         # Session management & SQLAlchemy Base
-│   │   ├── models/     # ORM models (User, UserRole, Service, Booking)
+│   │   ├── models/     # ORM models (User, Service, Category, Booking)
 │   │   ├── schemas/    # Pydantic data validation schemas
-│   │   └── services/   # Core domain business logic
-│   └── tests/          # Pytest test suite (Auth, Services, Bookings, Storage)
+│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking)
+│   └── tests/          # Pytest test suite
 ├── frontend/           # React + TypeScript + Vite Web App
 │   ├── src/
 │   │   ├── components/ # UI layouts, Navigation, Modals
@@ -38,17 +38,22 @@ smart-home-service-platform/
 
 ---
 
-## 🔐 User Roles & Authentication Architecture
+## 🔐 User Roles & Authorization
 
-The platform supports 3 primary user roles:
-- **`CUSTOMER`**: Can browse service catalog, schedule home visits, track live booking progress, and view receipts.
-- **`TECHNICIAN`**: Can toggle online availability, view assigned job dispatches, and update job progress (`IN_PROGRESS` -> `COMPLETED`).
-- **`ADMIN`**: Full platform control center, service catalog CRUD management, technician directory oversight, and manual booking assignment overrides.
+- **`CUSTOMER`**: Browse service catalog, filter by category, search by keyword, view service details, schedule bookings.
+- **`TECHNICIAN`**: Manage online availability, view incoming job dispatches, and update job progress (`IN_PROGRESS` -> `COMPLETED`).
+- **`ADMIN`**: Platform control center, create/update/deactivate catalog services, manage categories, oversight on technician directory & booking dispatches.
 
-### Authentication API Endpoints
-- `POST /api/auth/register` — Register a new user (`CUSTOMER`, `TECHNICIAN`, or `ADMIN`)
-- `POST /api/auth/login` — Authenticate credentials & receive JWT bearer token
-- `GET /api/auth/me` — Retrieve profile details for current authenticated user
+---
+
+## 📋 Service Catalog API Endpoints
+
+- `GET /api/services` — List active services with optional category filtering (`?category_id=X`) & search (`?search=kw`)
+- `GET /api/services/{id}` — Retrieve detailed information for a single service item
+- `POST /api/services` — Create a new service item (**Admin only**)
+- `PUT /api/services/{id}` — Update existing service details & upfront base price (**Admin only**)
+- `DELETE /api/services/{id}` — Deactivate or delete a service item (**Admin only**)
+- `GET /api/services/categories` — List available service categories (AC Repair, AC Installation, Refrigerator Repair, Washing Machine Repair, Plumbing, Electrical, TV Repair)
 
 ---
 
@@ -103,19 +108,15 @@ docker-compose up --build
 
 ## 🧪 Testing Suite
 
-Run backend unit and role-authorization integration tests:
+Run backend unit & service catalog integration tests:
 ```bash
 cd backend
 python -m pytest
 ```
 Testing covers:
-- `test_user_registration_customer`
-- `test_user_registration_technician`
-- `test_user_registration_duplicate_email`
-- `test_user_login`
-- `test_user_login_invalid_password`
-- `test_invalid_token`
-- `test_get_current_user_profile`
-- `test_unauthorized_profile_access`
-- `test_role_authorization_admin_only`
-- `test_direct_api_auth_routes`
+- `test_list_categories_auto_seeds`
+- `test_customer_browsing_and_retrieval`
+- `test_search_and_category_filter`
+- `test_admin_create_update_and_deactivate_service`
+- `test_unauthorized_modification_attempts` (returns 403 Forbidden)
+- All Auth & Storage test suites
