@@ -12,11 +12,13 @@ env/
 uploads/
 backend/uploads/
 
-# Node / React
+# Node / React / Playwright
 node_modules/
 dist/
 .vite/
 *.log
+test-results/
+playwright-report/
 
 # Environment variables & secrets
 .env

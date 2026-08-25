@@ -50,9 +50,11 @@ class CatalogService:
         db: Session,
         category_id: Optional[int] = None,
         search: Optional[str] = None,
-        only_active: bool = True
+        only_active: bool = True,
+        skip: int = 0,
+        limit: int = 100
     ) -> List[Service]:
-        """Fetch services filtered by category ID or keyword search."""
+        """Fetch services filtered by category ID or keyword search with production pagination."""
         # Seed if fresh database
         CatalogService.get_categories(db)
 
@@ -66,7 +68,7 @@ class CatalogService:
             query = query.filter(
                 (Service.name.ilike(search_pattern)) | (Service.description.ilike(search_pattern))
             )
-        return query.all()
+        return query.offset(skip).limit(limit).all()
 
     @staticmethod
     def get_service_by_id(db: Session, service_id: int) -> Service:

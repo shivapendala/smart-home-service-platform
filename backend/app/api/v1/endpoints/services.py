@@ -43,11 +43,13 @@ def create_category(
 def list_services(
     category_id: Optional[int] = Query(None, description="Filter services by category ID"),
     search: Optional[str] = Query(None, description="Search services by keyword"),
+    skip: int = Query(0, ge=0, description="Offset pagination skip count"),
+    limit: int = Query(100, ge=1, le=100, description="Page limit max 100"),
     db: Session = Depends(get_db)
 ):
-    """Fetch active services with optional category filtering and search (Customer & Public)."""
+    """Fetch active services with optional category filtering, search, and pagination (Customer & Public)."""
     return CatalogService.get_services(
-        db=db, category_id=category_id, search=search, only_active=True
+        db=db, category_id=category_id, search=search, only_active=True, skip=skip, limit=limit
     )
 
 

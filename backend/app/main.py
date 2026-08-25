@@ -1,10 +1,13 @@
 import os
+import logging
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, status
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
+from app.core.logging import setup_logging
 from app.db.base import Base
 from app.db.session import engine
 from app.api.v1.api import api_router
@@ -15,22 +18,39 @@ from app.api.v1.endpoints.technicians import router as technicians_router
 from app.api.v1.endpoints.admin import router as admin_router
 from app.api.v1.endpoints.notifications import router as notifications_router
 
+# Setup structured logging
+setup_logging()
+logger = logging.getLogger("smart_home_platform")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup: Ensure database tables exist
+    logger.info("Initializing database tables...")
     Base.metadata.create_all(bind=engine)
     # Ensure local upload storage directory exists
     os.makedirs(settings.LOCAL_STORAGE_DIR, exist_ok=True)
+    logger.info("Application startup complete.")
     yield
-    # Shutdown logic if needed
+    logger.info("Application shutting down.")
 
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
+    docs_url="/docs",
+    redoc_url="/redoc",
     lifespan=lifespan
 )
+
+# Global Production Error Handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled Exception on {request.method} {request.url.path}: {str(exc)}", exc_info=True)
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={"detail": "An internal server error occurred. Please try again later."}
+    )
 
 # Configure CORS Middleware
 app.add_middleware(
