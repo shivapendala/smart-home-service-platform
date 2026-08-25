@@ -87,6 +87,10 @@ class BookingService:
         )
         db.add(history)
 
+        # Trigger notification
+        from app.services.notification_service import NotificationService
+        NotificationService.notify_booking_created(db, booking)
+
         db.commit()
         db.refresh(booking)
         return booking
@@ -134,6 +138,11 @@ class BookingService:
         )
         db.add(history)
         db.add(booking)
+
+        # Trigger notification
+        from app.services.notification_service import NotificationService
+        NotificationService.notify_technician_assigned(db, booking, tech)
+
         db.commit()
         db.refresh(booking)
         return booking

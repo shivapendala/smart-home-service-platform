@@ -126,6 +126,11 @@ class TechnicianService:
         )
         db.add(history)
         db.add(booking)
+
+        # Trigger notification
+        from app.services.notification_service import NotificationService
+        NotificationService.notify_job_status_change(db, booking, action)
+
         db.commit()
         db.refresh(booking)
         return booking

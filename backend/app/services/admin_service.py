@@ -72,6 +72,12 @@ class AdminService:
             transaction_id=res["transaction_id"]
         )
         db.add(payment)
+        db.flush()
+
+        if payment.status == PaymentStatus.PAID:
+            from app.services.notification_service import NotificationService
+            NotificationService.notify_payment_completed(db, payment)
+
         db.commit()
         db.refresh(payment)
         return payment
@@ -179,6 +185,11 @@ class AdminService:
             complaint.resolution_notes = complaint_in.resolution_notes
 
         db.add(complaint)
+
+        # Trigger notification
+        from app.services.notification_service import NotificationService
+        NotificationService.notify_complaint_updated(db, complaint)
+
         db.commit()
         db.refresh(complaint)
         return complaint

@@ -4,6 +4,7 @@ from app.models.booking import Booking, BookingStatus, Address, BookingStatusHis
 from app.models.technician import TechnicianProfile, ServicePhoto, ServiceNote, PhotoType
 from app.models.payment import Payment, PaymentStatus
 from app.models.review import Review, Complaint, ComplaintStatus
+from app.models.notification import Notification
 
 __all__ = [
     "User",
@@ -24,4 +25,5 @@ __all__ = [
     "Review",
     "Complaint",
     "ComplaintStatus",
+    "Notification",
 ]

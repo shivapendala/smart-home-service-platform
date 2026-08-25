@@ -10,16 +10,16 @@ A production-style full-stack application connecting customers with certified te
 smart-home-service-platform/
 ├── backend/            # FastAPI Python Application
 │   ├── app/
-│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings, /technicians, /admin)
+│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings, /technicians, /admin, /notifications)
 │   │   ├── core/       # Security, JWT, config, storage & payment abstractions
 │   │   ├── db/         # Session management & SQLAlchemy Base
-│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, TechnicianProfile, Payment, Review, Complaint)
+│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, TechnicianProfile, Payment, Review, Complaint, Notification)
 │   │   ├── schemas/    # Pydantic data validation schemas
-│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking, Technician, Admin)
+│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking, Technician, Admin, Notification)
 │   └── tests/          # Pytest test suite
 ├── frontend/           # React + TypeScript + Vite Web App
 │   ├── src/
-│   │   ├── components/ # UI layouts, Navigation, Modals
+│   │   ├── components/ # UI layouts, Navigation, Modals, Notification Bell
 │   │   ├── context/    # AuthContext & global state management
 │   │   ├── pages/      # Home, Service Catalog, Login, Register & Dashboards
 │   │   ├── services/   # Axios API client
@@ -40,23 +40,26 @@ smart-home-service-platform/
 
 ## 🔐 User Roles & Scoped Workflows
 
-- **`CUSTOMER`**: Browse catalog, schedule visits, track live progress, make payments, submit 1-5 star reviews (on `COMPLETED` jobs), file complaints, cancel bookings.
-- **`TECHNICIAN`**: Toggle availability, manage dispatch queues (`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`), attach diagnostic notes, upload before/after photos with file security validation.
+- **`CUSTOMER`**: Browse catalog, schedule visits, track live progress, make payments, submit 1-5 star reviews (on `COMPLETED` jobs), file complaints, cancel bookings, receive real-time in-app notifications.
+- **`TECHNICIAN`**: Toggle availability, manage dispatch queues (`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`), attach diagnostic notes, upload before/after photos with file security validation, receive job dispatch notifications.
 - **`ADMIN`**: Full platform oversight — Dashboard KPI cards (Total Customers, Technicians, Today's Bookings, Pending, Active, Completed, Cancelled, Revenue Summary), customer/technician directory management, manual booking assignments, payment refund controls, review statistics, and complaint resolution ticketing.
 
 ---
 
-## 💳 Payments Abstraction & State Machine
+## 🔔 In-App Notification System & Event Dispatcher
 
-- **Abstraction**: `PaymentProvider` ABC with `MockPaymentProvider` implementation (no real payment secrets in Git).
-- **Payment States**: `PENDING` ➔ `PAID` ➔ `REFUNDED` (or `FAILED`).
+- **Architecture**: `NotificationService` central dispatcher decoupling notification creation from core domain logic. Ready for seamless integration with Email (SMTP/SES) and SMS (Twilio) providers.
+- **Automated Event Triggers**:
+  - **Booking Created**: Notifies Customer with booking confirmation.
+  - **Technician Assigned**: Notifies Customer of assigned technician name & Notifies Technician of new job dispatch.
+  - **Job Status Changes**: Notifies Customer when technician Accepts job, marks `ON_THE_WAY`, Starts service, and Completes service.
+  - **Payment Completed**: Notifies Customer with transaction confirmation ID.
+  - **Complaint Updated**: Notifies Customer when Admin updates complaint status or resolution notes.
 
----
-
-## ⭐️ Reviews & 🎫 Complaints System
-
-- **Reviews**: Allowed only after `COMPLETED` status. Prevents duplicate reviews per booking (`400 Bad Request`).
-- **Complaints**: Customers file tickets; Admins assign, update status (`OPEN`, `IN_PROGRESS`, `RESOLVED`, `REJECTED`), and record resolution notes.
+### Notification API Endpoints
+- `GET /api/notifications` — Fetch user notifications & unread count
+- `PATCH /api/notifications/{id}/read` — Mark single notification as read (User isolation check)
+- `PATCH /api/notifications/read-all` — Mark all user notifications as read
 
 ---
 
@@ -117,8 +120,6 @@ cd backend
 python -m pytest
 ```
 Testing covers:
-- `test_admin_dashboard_stats` (KPI calculations & 403 authorization check)
-- `test_payment_and_refund_workflow` (Payment creation `PAID`, block duplicate payment, Admin refund `REFUNDED`)
-- `test_review_creation_and_duplicate_block` (Completed status enforcement & block duplicate review)
-- `test_complaint_ticketing_and_admin_resolution` (Complaint filing & Admin resolution)
-- All Auth, Catalog, Booking, Technician, and Storage test suites (33 passing tests)
+- `test_notification_creation_and_triggers` (Booking creation, technician assignment dispatch, job status transitions)
+- `test_mark_as_read_and_security_isolation` (User isolation `403 Forbidden` block & mark read all)
+- All Auth, Catalog, Booking, Technician, Admin, Payments, and Storage test suites (35 passing tests)

@@ -9,6 +9,11 @@ from app.schemas.technician import (
     TechnicianProfileCreate, TechnicianProfileResponse, TechnicianAvailabilityUpdate,
     ServicePhotoResponse, ServiceNoteCreate, ServiceNoteResponse
 )
+from app.schemas.admin import (
+    AdminDashboardStats, PaymentCreate, PaymentResponse, ReviewCreate, ReviewResponse,
+    ComplaintCreate, ComplaintUpdate, ComplaintResponse
+)
+from app.schemas.notification import NotificationResponse, NotificationListResponse
 
 __all__ = [
     "UserCreate",
@@ -34,4 +39,14 @@ __all__ = [
     "ServicePhotoResponse",
     "ServiceNoteCreate",
     "ServiceNoteResponse",
+    "AdminDashboardStats",
+    "PaymentCreate",
+    "PaymentResponse",
+    "ReviewCreate",
+    "ReviewResponse",
+    "ComplaintCreate",
+    "ComplaintUpdate",
+    "ComplaintResponse",
+    "NotificationResponse",
+    "NotificationListResponse",
 ]
