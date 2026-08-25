@@ -8,6 +8,7 @@ import { ProtectedRoute } from './components/common/ProtectedRoute';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
+import { ServiceCatalogPage } from './pages/catalog/ServiceCatalogPage';
 import { CustomerDashboard } from './pages/dashboard/CustomerDashboard';
 import { TechnicianDashboard } from './pages/dashboard/TechnicianDashboard';
 import { AdminDashboard } from './pages/dashboard/AdminDashboard';
@@ -21,6 +22,7 @@ export const App: React.FC = () => {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServiceCatalogPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
 

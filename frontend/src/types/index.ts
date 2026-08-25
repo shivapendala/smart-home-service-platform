@@ -18,6 +18,40 @@ export interface User {
   updated_at: string;
 }
 
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+  icon: string;
+  description?: string;
+  created_at: string;
+}
+
+export interface ServiceItem {
+  id: number;
+  category_id: number;
+  name: string;
+  slug: string;
+  description: string;
+  base_price: number;
+  duration_minutes: number;
+  image_url?: string;
+  is_active: boolean;
+  category?: Category;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ServiceCreatePayload {
+  category_id: number;
+  name: string;
+  description: string;
+  base_price: number;
+  duration_minutes: number;
+  image_url?: string;
+  is_active?: boolean;
+}
+
 export interface AuthToken {
   access_token: string;
   token_type: string;

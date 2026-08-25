@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { AuthToken, LoginCredentials, RegisterPayload, User } from '../types';
+import {
+  AuthToken, LoginCredentials, RegisterPayload, User,
+  Category, ServiceItem, ServiceCreatePayload
+} from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/v1';
 
@@ -45,5 +48,39 @@ export const authService = {
   updateProfile: async (payload: Partial<User>): Promise<User> => {
     const response = await api.put<User>('/auth/me', payload);
     return response.data;
+  }
+};
+
+export const catalogService = {
+  getCategories: async (): Promise<Category[]> => {
+    const response = await api.get<Category[]>('/services/categories');
+    return response.data;
+  },
+
+  getServices: async (categoryId?: number, search?: string): Promise<ServiceItem[]> => {
+    const params: Record<string, any> = {};
+    if (categoryId) params.category_id = categoryId;
+    if (search) params.search = search;
+    const response = await api.get<ServiceItem[]>('/services/items', { params });
+    return response.data;
+  },
+
+  getServiceById: async (id: number): Promise<ServiceItem> => {
+    const response = await api.get<ServiceItem>(`/services/items/${id}`);
+    return response.data;
+  },
+
+  createService: async (payload: ServiceCreatePayload): Promise<ServiceItem> => {
+    const response = await api.post<ServiceItem>('/services/items', payload);
+    return response.data;
+  },
+
+  updateService: async (id: number, payload: Partial<ServiceCreatePayload>): Promise<ServiceItem> => {
+    const response = await api.put<ServiceItem>(`/services/items/${id}`, payload);
+    return response.data;
+  },
+
+  deleteService: async (id: number): Promise<void> => {
+    await api.delete(`/services/items/${id}`);
   }
 };

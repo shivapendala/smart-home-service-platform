@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Wrench, LogOut, Shield, Home, LayoutDashboard } from 'lucide-react';
+import { Wrench, LogOut, Shield, Home, LayoutDashboard, Grid } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 export const Navbar: React.FC = () => {
@@ -44,6 +44,11 @@ export const Navbar: React.FC = () => {
         <li>
           <Link to="/" className="nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <Home size={18} /> Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/services" className="nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <Grid size={18} /> Services Catalog
           </Link>
         </li>
 
