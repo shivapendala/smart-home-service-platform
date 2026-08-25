@@ -13,13 +13,13 @@ smart-home-service-platform/
 │   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings)
 │   │   ├── core/       # Security, JWT, config, storage abstractions
 │   │   ├── db/         # Session management & SQLAlchemy Base
-│   │   ├── models/     # ORM models (User, Service, Category, Booking)
+│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, BookingStatusHistory)
 │   │   ├── schemas/    # Pydantic data validation schemas
 │   │   └── services/   # Core domain business logic (Auth, Catalog, Booking)
 │   └── tests/          # Pytest test suite
 ├── frontend/           # React + TypeScript + Vite Web App
 │   ├── src/
-│   │   ├── components/ # UI layouts, Navigation, Modals
+│   │   ├── components/ # UI layouts, Navigation, BookingModal
 │   │   ├── context/    # AuthContext & global state management
 │   │   ├── pages/      # Home, Service Catalog, Login, Register & Dashboards
 │   │   ├── services/   # Axios API client
@@ -38,22 +38,26 @@ smart-home-service-platform/
 
 ---
 
-## 🔐 User Roles & Authorization
+## 🔐 User Roles & Scoped Workflows
 
-- **`CUSTOMER`**: Browse service catalog, filter by category, search by keyword, view service details, schedule bookings.
-- **`TECHNICIAN`**: Manage online availability, view incoming job dispatches, and update job progress (`IN_PROGRESS` -> `COMPLETED`).
+- **`CUSTOMER`**: Browse service catalog, create delivery addresses, schedule home visits, describe problems, track live booking status, cancel bookings, view personal booking history (Customer-scoped queries).
+- **`TECHNICIAN`**: Manage online availability, view assigned job dispatches, and update job progress (`IN_PROGRESS` -> `COMPLETED`).
 - **`ADMIN`**: Platform control center, create/update/deactivate catalog services, manage categories, oversight on technician directory & booking dispatches.
 
 ---
 
-## 📋 Service Catalog API Endpoints
+## 📅 Booking System & State Machine
 
-- `GET /api/services` — List active services with optional category filtering (`?category_id=X`) & search (`?search=kw`)
-- `GET /api/services/{id}` — Retrieve detailed information for a single service item
-- `POST /api/services` — Create a new service item (**Admin only**)
-- `PUT /api/services/{id}` — Update existing service details & upfront base price (**Admin only**)
-- `DELETE /api/services/{id}` — Deactivate or delete a service item (**Admin only**)
-- `GET /api/services/categories` — List available service categories (AC Repair, AC Installation, Refrigerator Repair, Washing Machine Repair, Plumbing, Electrical, TV Repair)
+### Status Lifecycle
+`PENDING` ➔ `ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED` (or `CANCELLED`)
+
+Strict transition validation ensures terminal states (`COMPLETED`, `CANCELLED`) cannot be modified, and all state changes are logged in `booking_status_history`.
+
+### Customer Booking API Endpoints
+- `POST /api/bookings` — Create a new service booking with address, date, time slot, and problem description
+- `GET /api/bookings` — List all bookings belonging exclusively to the current customer
+- `GET /api/bookings/{id}` — Retrieve detailed booking information (Customer ownership validation)
+- `PUT /api/bookings/{id}/cancel` — Cancel an existing booking (`PENDING` or `ASSIGNED` status)
 
 ---
 
@@ -108,15 +112,16 @@ docker-compose up --build
 
 ## 🧪 Testing Suite
 
-Run backend unit & service catalog integration tests:
+Run backend unit & booking integration tests:
 ```bash
 cd backend
 python -m pytest
 ```
 Testing covers:
-- `test_list_categories_auto_seeds`
-- `test_customer_browsing_and_retrieval`
-- `test_search_and_category_filter`
-- `test_admin_create_update_and_deactivate_service`
-- `test_unauthorized_modification_attempts` (returns 403 Forbidden)
-- All Auth & Storage test suites
+- `test_booking_creation_workflow`
+- `test_booking_invalid_service` (404 Not Found)
+- `test_booking_invalid_past_date` (400 Bad Request / 422 Unprocessable)
+- `test_unauthorized_customer_booking_access` (403 Forbidden customer isolation)
+- `test_booking_cancellation_and_status_history`
+- `test_strict_invalid_status_transition` (400 Bad Request state machine error)
+- All Auth & Catalog test suites

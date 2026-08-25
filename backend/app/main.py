@@ -10,6 +10,7 @@ from app.db.session import engine
 from app.api.v1.api import api_router
 from app.api.v1.endpoints.auth import router as auth_router
 from app.api.v1.endpoints.services import router as services_router
+from app.api.v1.endpoints.bookings import router as bookings_router
 
 
 @asynccontextmanager
@@ -41,10 +42,11 @@ app.add_middleware(
 os.makedirs(settings.LOCAL_STORAGE_DIR, exist_ok=True)
 app.mount("/static/uploads", StaticFiles(directory=settings.LOCAL_STORAGE_DIR), name="uploads")
 
-# Mount API Routers under /api/v1 and aliases /api/auth & /api/services
+# Mount API Routers under /api/v1 and direct aliases /api/auth, /api/services, /api/bookings
 app.include_router(api_router, prefix=settings.API_V1_STR)
 app.include_router(auth_router, prefix="/api/auth", tags=["Authentication Direct"])
 app.include_router(services_router, prefix="/api/services", tags=["Service Catalog Direct"])
+app.include_router(bookings_router, prefix="/api/bookings", tags=["Bookings Direct"])
 
 
 @app.get("/health", tags=["Health"])
