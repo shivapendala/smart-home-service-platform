@@ -92,7 +92,7 @@ class BookingService:
         return booking
 
     @staticmethod
-    def get_booking_by_id(db: Session, booking_id: int, current_user: User) -> Booking:
+    def get_booking_by_id(db: Session, booking_id: int, current_user: Optional[User] = None) -> Booking:
         """Fetch single booking details with strict customer scoping."""
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
         if not booking:
@@ -102,12 +102,40 @@ class BookingService:
             )
         
         # Customer scoping: customer can only view their own booking
-        if current_user.role == UserRole.CUSTOMER and booking.customer_id != current_user.id:
+        if current_user and current_user.role == UserRole.CUSTOMER and booking.customer_id != current_user.id:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Access denied. Customers can only view their own bookings."
             )
             
+        return booking
+
+    @classmethod
+    def assign_technician(cls, db: Session, booking_id: int, technician_id: int, admin_user: Optional[User] = None) -> Booking:
+        """Admin action: Assign a technician to a booking and transition to ASSIGNED status."""
+        booking = cls.get_booking_by_id(db, booking_id, admin_user)
+        tech = db.query(User).filter(User.id == technician_id, User.role == UserRole.TECHNICIAN).first()
+        if not tech:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Technician not found or user is not a technician."
+            )
+
+        old_status = booking.status
+        booking.technician_id = tech.id
+        booking.status = BookingStatus.ASSIGNED
+
+        history = BookingStatusHistory(
+            booking_id=booking.id,
+            old_status=old_status.value,
+            new_status=BookingStatus.ASSIGNED.value,
+            changed_by_user_id=admin_user.id if admin_user else None,
+            notes=f"Assigned technician {tech.full_name} (ID: {tech.id})"
+        )
+        db.add(history)
+        db.add(booking)
+        db.commit()
+        db.refresh(booking)
         return booking
 
     @staticmethod

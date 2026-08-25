@@ -1,5 +1,6 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, status
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.schemas.booking import (
@@ -10,6 +11,10 @@ from app.models.user import User, UserRole
 from app.api.deps import get_current_user, require_roles
 
 router = APIRouter()
+
+
+class AssignTechnicianPayload(BaseModel):
+    technician_id: int
 
 
 # --- Address API ---
@@ -60,6 +65,19 @@ def get_booking_details(
 ):
     """Fetch details for a single booking (Strict Customer ownership validation)."""
     return BookingService.get_booking_by_id(db=db, booking_id=booking_id, current_user=current_user)
+
+
+@router.patch("/{booking_id}/assign", response_model=BookingResponse)
+def assign_technician(
+    booking_id: int,
+    payload: AssignTechnicianPayload,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_roles([UserRole.ADMIN]))
+):
+    """Admin action: Assign a technician to a booking."""
+    return BookingService.assign_technician(
+        db=db, booking_id=booking_id, technician_id=payload.technician_id, admin_user=current_user
+    )
 
 
 @router.put("/{booking_id}/cancel", response_model=BookingResponse)

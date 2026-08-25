@@ -5,6 +5,10 @@ from app.schemas.booking import (
     AddressCreate, AddressResponse, BookingCreate, BookingResponse,
     BookingStatusUpdate, BookingStatusHistoryResponse
 )
+from app.schemas.technician import (
+    TechnicianProfileCreate, TechnicianProfileResponse, TechnicianAvailabilityUpdate,
+    ServicePhotoResponse, ServiceNoteCreate, ServiceNoteResponse
+)
 
 __all__ = [
     "UserCreate",
@@ -24,4 +28,10 @@ __all__ = [
     "BookingResponse",
     "BookingStatusUpdate",
     "BookingStatusHistoryResponse",
+    "TechnicianProfileCreate",
+    "TechnicianProfileResponse",
+    "TechnicianAvailabilityUpdate",
+    "ServicePhotoResponse",
+    "ServiceNoteCreate",
+    "ServiceNoteResponse",
 ]

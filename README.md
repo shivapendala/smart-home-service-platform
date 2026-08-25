@@ -10,16 +10,16 @@ A production-style full-stack application connecting customers with certified te
 smart-home-service-platform/
 ├── backend/            # FastAPI Python Application
 │   ├── app/
-│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings)
+│   │   ├── api/        # Routers & API endpoints (/auth, /services, /bookings, /technicians)
 │   │   ├── core/       # Security, JWT, config, storage abstractions
 │   │   ├── db/         # Session management & SQLAlchemy Base
-│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, BookingStatusHistory)
+│   │   ├── models/     # ORM models (User, Service, Category, Address, Booking, TechnicianProfile, ServicePhoto, ServiceNote)
 │   │   ├── schemas/    # Pydantic data validation schemas
-│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking)
+│   │   └── services/   # Core domain business logic (Auth, Catalog, Booking, Technician)
 │   └── tests/          # Pytest test suite
 ├── frontend/           # React + TypeScript + Vite Web App
 │   ├── src/
-│   │   ├── components/ # UI layouts, Navigation, BookingModal
+│   │   ├── components/ # UI layouts, Navigation, Modals
 │   │   ├── context/    # AuthContext & global state management
 │   │   ├── pages/      # Home, Service Catalog, Login, Register & Dashboards
 │   │   ├── services/   # Axios API client
@@ -40,24 +40,23 @@ smart-home-service-platform/
 
 ## 🔐 User Roles & Scoped Workflows
 
-- **`CUSTOMER`**: Browse service catalog, create delivery addresses, schedule home visits, describe problems, track live booking status, cancel bookings, view personal booking history (Customer-scoped queries).
-- **`TECHNICIAN`**: Manage online availability, view assigned job dispatches, and update job progress (`IN_PROGRESS` -> `COMPLETED`).
-- **`ADMIN`**: Platform control center, create/update/deactivate catalog services, manage categories, oversight on technician directory & booking dispatches.
+- **`CUSTOMER`**: Browse service catalog, create delivery addresses, schedule home visits, describe problems, track live booking status, cancel bookings, view personal booking history.
+- **`TECHNICIAN`**: Toggle online availability, view assigned job dispatches (New Assigned, Today's Jobs, Active Job, Completed Jobs), execute workflow status actions, write diagnostic notes, and upload before/after photos with file security validation. (Strict security isolation: Technicians may only access bookings assigned to them).
+- **`ADMIN`**: Platform control center, create/update/deactivate catalog services, manage categories, oversight on technician directory & dispatch assignments.
 
 ---
 
-## 📅 Booking System & State Machine
+## 🔧 Technician Job Workflow & File Security
 
-### Status Lifecycle
-`PENDING` ➔ `ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED` (or `CANCELLED`)
+### Job State Transitions
+`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`
+(Or `REJECT` ➔ returns job to `PENDING` queue for re-assignment).
 
-Strict transition validation ensures terminal states (`COMPLETED`, `CANCELLED`) cannot be modified, and all state changes are logged in `booking_status_history`.
-
-### Customer Booking API Endpoints
-- `POST /api/bookings` — Create a new service booking with address, date, time slot, and problem description
-- `GET /api/bookings` — List all bookings belonging exclusively to the current customer
-- `GET /api/bookings/{id}` — Retrieve detailed booking information (Customer ownership validation)
-- `PUT /api/bookings/{id}/cancel` — Cancel an existing booking (`PENDING` or `ASSIGNED` status)
+### Safe Local File Upload Validation
+- **Supported File Types**: JPG, JPEG, PNG, WEBP (`ALLOWED_MIME_TYPES = image/jpeg, image/png, image/webp`).
+- **File Size Limit**: Strict 5MB ceiling per photo.
+- **Sanitization & Storage**: Filenames sanitized with UUIDs and saved via `LocalStorageProvider` abstraction.
+- **Authorization Enforcement**: Uploads restricted to assigned technician or booking owner customer (`403 Forbidden` on unauthorized attempts).
 
 ---
 
@@ -112,16 +111,15 @@ docker-compose up --build
 
 ## 🧪 Testing Suite
 
-Run backend unit & booking integration tests:
+Run backend unit & technician workflow integration tests:
 ```bash
 cd backend
 python -m pytest
 ```
 Testing covers:
-- `test_booking_creation_workflow`
-- `test_booking_invalid_service` (404 Not Found)
-- `test_booking_invalid_past_date` (400 Bad Request / 422 Unprocessable)
-- `test_unauthorized_customer_booking_access` (403 Forbidden customer isolation)
-- `test_booking_cancellation_and_status_history`
-- `test_strict_invalid_status_transition` (400 Bad Request state machine error)
-- All Auth & Catalog test suites
+- `test_technician_complete_workflow` (`ASSIGNED` ➔ `ACCEPTED` ➔ `ON_THE_WAY` ➔ `IN_PROGRESS` ➔ `COMPLETED`)
+- `test_technician_job_rejection`
+- `test_unrelated_technician_security_isolation` (403 Forbidden on unauthorized job access)
+- `test_photo_upload_and_validation` (Valid JPEG upload & invalid `.txt` rejection)
+- `test_service_notes`
+- All Auth, Catalog, Booking, and Storage test suites (29 passing tests)
