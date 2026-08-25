@@ -1,4 +1,50 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.payments_billing import InvoiceStatus, RefundStatus, GatewayProvider
+
+class InvoiceItemCreate(BaseModel):
+    item_description: str
+    quantity: int = 1
+    unit_price: float
+    item_type: str = "LABOR"
+
+class InvoiceCreate(BaseModel):
+    booking_id: int
+    items: List[InvoiceItemCreate]
+    discount_amount: float = 0.0
+    tax_rate_percent: float = 0.0
+    due_days: int = 14
+    notes: Optional[str] = None
+
+class InvoiceResponse(BaseModel):
+    id: int
+    invoice_number: str
+    booking_id: int
+    customer_id: int
+    subtotal: float
+    tax_amount: float
+    discount_amount: float
+    total_amount: float
+    status: InvoiceStatus
+    due_date: date
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class PaymentGatewayLogCreate(BaseModel):
+    booking_id: int
+    invoice_id: Optional[int] = None
+    provider: GatewayProvider = GatewayProvider.MOCK_GATEWAY
+    amount: float
+    currency: str = "USD"
+
+class RefundRequestCreate(BaseModel):
+    invoice_id: int
+    requested_amount: float
+    reason: str
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.payments_billing import PaymentsBillingStatus, PaymentsBillingPriority, PaymentsBillingCategoryType

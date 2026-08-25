@@ -1,4 +1,36 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.communication import CommChannel, CommDeliveryStatus
+
+class ChatMessageCreate(BaseModel):
+    booking_id: int
+    recipient_id: int
+    message_text: str
+    attachment_url: Optional[str] = None
+
+class ChatMessageResponse(ChatMessageCreate):
+    id: int
+    sender_id: int
+    is_read: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class NotificationTemplateCreate(BaseModel):
+    template_key: str
+    channel: CommChannel
+    title_template: str
+    body_template: str
+
+class CommunicationDispatchCreate(BaseModel):
+    recipient_user_id: int
+    channel: CommChannel
+    destination: str
+    template_key: Optional[str] = None
+    template_data: Optional[dict] = None
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.communication import CommunicationStatus, CommunicationPriority, CommunicationCategoryType

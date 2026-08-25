@@ -1,4 +1,33 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.warranty_amc import AMCPlanTier, WarrantyClaimStatus
+
+class AMCPlanCreate(BaseModel):
+    plan_name: str
+    tier: AMCPlanTier = AMCPlanTier.GOLD_PREMIUM
+    description: str
+    annual_price: float
+    duration_months: int = 12
+    covered_visits_per_year: int = 4
+    discount_on_spare_parts: float = 15.0
+
+class AMCPlanResponse(AMCPlanCreate):
+    id: int
+    is_active: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class AMCSubscriptionCreate(BaseModel):
+    amc_plan_id: int
+    is_auto_renew: bool = False
+
+class WarrantyClaimCreate(BaseModel):
+    booking_id: int
+    issue_description: str
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.warranty_amc import WarrantyAmcStatus, WarrantyAmcPriority, WarrantyAmcCategoryType

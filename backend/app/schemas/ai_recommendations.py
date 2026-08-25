@@ -1,4 +1,46 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+
+class DiagnosticWizardRequest(BaseModel):
+    appliance_type: str
+    symptoms: List[str]
+    appliance_age_years: int = 1
+
+class DiagnosticWizardResponse(BaseModel):
+    appliance_type: str
+    diagnosed_root_cause: str
+    suggested_root_cause: str
+    estimated_repair_cost_min: float = 50.0
+    estimated_repair_cost_max: float = 120.0
+    urgency_level: str = "MEDIUM"
+
+class PricingEstimatorRequest(BaseModel):
+    service_category: str
+    problem_description: str
+
+class PricingEstimatorResponse(BaseModel):
+    estimated_min_price: float
+    estimated_max_price: float
+    recommended_part_replacement: Optional[str] = None
+
+
+from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+
+class DiagnosticRequest(BaseModel):
+    appliance_type: str
+    symptoms: List[str]
+    appliance_age_years: int = 1
+
+class DiagnosticResponse(BaseModel):
+    appliance_type: str
+    suggested_root_cause: str
+    estimated_cost: float
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.ai_recommendations import AiRecommendationsStatus, AiRecommendationsPriority, AiRecommendationsCategoryType
@@ -535,3 +577,13 @@ class AiRecommendationsRelationalComponent25Response(AiRecommendationsRelational
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+DiagnosticRecommendation = DiagnosticWizardResponse
+
+
+ProblemKeywordPricingRequest = PricingEstimatorRequest
+ProblemKeywordPricingResponse = PricingEstimatorResponse
+ApplianceHealthRiskResponse = DiagnosticWizardResponse
+
+
+HealthRiskAssessmentResponse = DiagnosticWizardResponse

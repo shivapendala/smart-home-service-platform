@@ -1,4 +1,20 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+
+class ExecutiveDashboardMetricsResponse(BaseModel):
+    total_revenue: float
+    total_bookings: int
+    active_technicians: int
+    customer_satisfaction_score: float
+
+class CSVExportRequest(BaseModel):
+    report_type: str
+    start_date: date
+    end_date: date
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.analytics import AnalyticsStatus, AnalyticsPriority, AnalyticsCategoryType

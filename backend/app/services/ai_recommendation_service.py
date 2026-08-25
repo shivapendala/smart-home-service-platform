@@ -108,3 +108,5 @@ class AIRecommendationService:
             health_status=status_str,
             recommended_maintenance=rec
         )
+
+AiRecommendationsService = AIRecommendationService

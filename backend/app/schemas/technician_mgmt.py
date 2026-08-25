@@ -1,4 +1,63 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.technician_mgmt import DayOfWeek, PayoutStatus, DispatchPriority
+
+class TechnicianShiftCreate(BaseModel):
+    day_of_week: DayOfWeek
+    shift_start: time
+    shift_end: time
+    break_start: Optional[time] = None
+    break_end: Optional[time] = None
+    is_active: bool = True
+    max_jobs_per_shift: int = 6
+
+class TechnicianShiftResponse(TechnicianShiftCreate):
+    id: int
+    technician_id: int
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianServiceZoneCreate(BaseModel):
+    zone_name: str
+    zip_code: str
+    city: str
+    state: str
+    latitude_center: Optional[float] = None
+    longitude_center: Optional[float] = None
+    radius_km: float = 15.0
+    is_primary_zone: bool = True
+
+class TechnicianSkillCreate(BaseModel):
+    skill_name: str
+    category_name: str
+    proficiency_level: str = "INTERMEDIATE"
+    years_experience: int = 1
+    is_certified: bool = False
+
+class TechnicianCertificationCreate(BaseModel):
+    certification_title: str
+    issuing_authority: str
+    license_number: str
+    issue_date: date
+    expiry_date: Optional[date] = None
+
+class EmergencyDispatchCreate(BaseModel):
+    booking_id: int
+    priority: DispatchPriority = DispatchPriority.HIGH
+    dispatch_reason: str
+    response_sla_minutes: int = 30
+
+class TechnicianPayoutCreate(BaseModel):
+    technician_id: int
+    period_start: date
+    period_end: date
+    gross_earnings: float
+    platform_commission: float
+    payout_method: str = "BANK_TRANSFER"
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.technician_mgmt import TechnicianMgmtStatus, TechnicianMgmtPriority, TechnicianMgmtCategoryType

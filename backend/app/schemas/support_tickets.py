@@ -1,4 +1,24 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.support_tickets import TicketPriority, TicketStatus
+
+class SupportTicketCreate(BaseModel):
+    booking_id: Optional[int] = None
+    subject: str = Field(..., max_length=200)
+    category: str = "GENERAL_INQUIRY"
+    priority: TicketPriority = TicketPriority.MEDIUM
+
+class TicketCommentCreate(BaseModel):
+    comment_text: str
+    is_internal_note: bool = False
+
+class SatisfactionSurveyCreate(BaseModel):
+    rating: int = Field(..., ge=1, le=5)
+    feedback_notes: Optional[str] = None
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.support_tickets import SupportTicketsStatus, SupportTicketsPriority, SupportTicketsCategoryType

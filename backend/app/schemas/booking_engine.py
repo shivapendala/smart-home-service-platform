@@ -1,4 +1,31 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.booking_engine import RecurrenceFrequency, ScheduleStatus
+
+class RecurringScheduleCreate(BaseModel):
+    service_id: int
+    address_id: int
+    frequency: RecurrenceFrequency = RecurrenceFrequency.MONTHLY
+    start_date: date
+    end_date: Optional[date] = None
+    preferred_time_slot: str
+
+class RecurringScheduleResponse(RecurringScheduleCreate):
+    id: int
+    customer_id: int
+    status: ScheduleStatus
+    next_execution_date: date
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class MultiTechAssignmentCreate(BaseModel):
+    booking_id: int
+    technician_id: int
+    role_title: str = "ASSISTANT_TECHNICIAN"
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.booking_engine import BookingEngineStatus, BookingEnginePriority, BookingEngineCategoryType

@@ -1,4 +1,33 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+
+class AuditLogCreate(BaseModel):
+    action: str
+    entity_name: str
+    entity_id: Optional[str] = None
+    changes_json: Optional[str] = None
+
+class AuditLogResponse(AuditLogCreate):
+    id: int
+    user_id: Optional[int]
+    ip_address: str
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class SecurityIpPolicyCreate(BaseModel):
+    ip_address_or_cidr: str
+    policy_type: str = "WHITELIST"
+    reason: Optional[str] = None
+
+class SecurityIpPolicyResponse(SecurityIpPolicyCreate):
+    id: int
+    is_active: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.audit_security import AuditSecurityStatus, AuditSecurityPriority, AuditSecurityCategoryType

@@ -1,4 +1,35 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.inventory import MovementType
+
+class SparePartCreate(BaseModel):
+    sku: str
+    part_name: str
+    category_name: str
+    description: Optional[str] = None
+    cost_price: float
+    selling_price: float
+    reorder_threshold: int = 5
+
+class SparePartResponse(SparePartCreate):
+    id: int
+    is_active: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class VanStockTransferCreate(BaseModel):
+    technician_id: int
+    spare_part_id: int
+    quantity: int
+
+class PartUsageCreate(BaseModel):
+    booking_id: int
+    spare_part_id: int
+    quantity_used: int = 1
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.inventory import InventoryStatus, InventoryPriority, InventoryCategoryType
