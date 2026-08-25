@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
   AuthToken, LoginCredentials, RegisterPayload, User,
-  Category, ServiceItem, ServiceCreatePayload
+  Category, ServiceItem, ServiceCreatePayload,
+  Booking, BookingCreatePayload, BookingStatus
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/v1';
@@ -82,5 +83,32 @@ export const catalogService = {
 
   deleteService: async (id: number): Promise<void> => {
     await api.delete(`/services/items/${id}`);
+  }
+};
+
+export const bookingService = {
+  createBooking: async (payload: BookingCreatePayload): Promise<Booking> => {
+    const response = await api.post<Booking>('/bookings/', payload);
+    return response.data;
+  },
+
+  getMyBookings: async (): Promise<Booking[]> => {
+    const response = await api.get<Booking[]>('/bookings/my');
+    return response.data;
+  },
+
+  getBookingById: async (id: number): Promise<Booking> => {
+    const response = await api.get<Booking>(`/bookings/${id}`);
+    return response.data;
+  },
+
+  updateStatus: async (id: number, status: BookingStatus): Promise<Booking> => {
+    const response = await api.patch<Booking>(`/bookings/${id}/status`, { status });
+    return response.data;
+  },
+
+  assignTechnician: async (id: number, technicianId: number): Promise<Booking> => {
+    const response = await api.patch<Booking>(`/bookings/${id}/assign`, { technician_id: technicianId });
+    return response.data;
   }
 };

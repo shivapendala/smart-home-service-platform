@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Wrench, FileText, CheckCircle, Activity, Plus, Trash2, X } from 'lucide-react';
+import { Users, Wrench, FileText, CheckCircle, Plus, Trash2, X, Calendar } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { authService, catalogService } from '../../services/api';
-import { User, Category, ServiceItem } from '../../types';
+import { authService, catalogService, bookingService } from '../../services/api';
+import { User, Category, ServiceItem, Booking } from '../../types';
 
 export const AdminDashboard: React.FC = () => {
   const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState<'technicians' | 'catalog'>('technicians');
+  const [activeTab, setActiveTab] = useState<'technicians' | 'catalog' | 'bookings'>('bookings');
   
   // Technicians state
   const [technicians, setTechnicians] = useState<User[]>([]);
@@ -16,6 +16,10 @@ export const AdminDashboard: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [services, setServices] = useState<ServiceItem[]>([]);
   const [catalogLoading, setCatalogLoading] = useState(false);
+
+  // Bookings state
+  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [bookingsLoading, setBookingsLoading] = useState(true);
 
   // Create Service Modal state
   const [showModal, setShowModal] = useState(false);
@@ -29,6 +33,7 @@ export const AdminDashboard: React.FC = () => {
   useEffect(() => {
     fetchTechnicians();
     fetchCatalog();
+    fetchBookings();
   }, []);
 
   const fetchTechnicians = async () => {
@@ -56,6 +61,18 @@ export const AdminDashboard: React.FC = () => {
       console.error('Failed to load catalog:', err);
     } finally {
       setCatalogLoading(false);
+    }
+  };
+
+  const fetchBookings = async () => {
+    setBookingsLoading(true);
+    try {
+      const list = await bookingService.getMyBookings();
+      setBookings(list);
+    } catch (err) {
+      console.error('Failed to load bookings:', err);
+    } finally {
+      setBookingsLoading(false);
     }
   };
 
@@ -93,6 +110,15 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
+  const handleAssignTechnician = async (bookingId: number, techId: number) => {
+    try {
+      await bookingService.assignTechnician(bookingId, techId);
+      await fetchBookings();
+    } catch (err) {
+      alert('Failed to assign technician.');
+    }
+  };
+
   return (
     <div style={{ padding: '2rem 3rem' }}>
       {/* Admin Header */}
@@ -118,6 +144,17 @@ export const AdminDashboard: React.FC = () => {
       <div className="grid-3" style={{ marginBottom: '2rem' }}>
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ color: '#94a3b8', fontWeight: 600, fontSize: '0.9rem' }}>Total Platform Bookings</span>
+            <Calendar size={20} color="#6366f1" />
+          </div>
+          <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', marginTop: '0.5rem' }}>
+            {bookings.length}
+          </div>
+          <span style={{ fontSize: '0.8rem', color: '#6366f1' }}>Total customer orders</span>
+        </div>
+
+        <div className="glass-panel" style={{ padding: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: '#94a3b8', fontWeight: 600, fontSize: '0.9rem' }}>Registered Technicians</span>
             <Wrench size={20} color="#10b981" />
           </div>
@@ -129,22 +166,11 @@ export const AdminDashboard: React.FC = () => {
 
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ color: '#94a3b8', fontWeight: 600, fontSize: '0.9rem' }}>Catalog Services</span>
-            <Activity size={20} color="#06b6d4" />
-          </div>
-          <div style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', marginTop: '0.5rem' }}>
-            {services.length}
-          </div>
-          <span style={{ fontSize: '0.8rem', color: '#06b6d4' }}>Total active service items</span>
-        </div>
-
-        <div className="glass-panel" style={{ padding: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: '#94a3b8', fontWeight: 600, fontSize: '0.9rem' }}>System Status</span>
             <CheckCircle size={20} color="#10b981" />
           </div>
           <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#10b981', marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            All Services Operational
+            All Systems Operational
           </div>
           <span style={{ fontSize: '0.8rem', color: '#64748b' }}>FastAPI Backend & DB Healthy</span>
         </div>
@@ -152,6 +178,13 @@ export const AdminDashboard: React.FC = () => {
 
       {/* Section Tabs */}
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+        <button
+          onClick={() => setActiveTab('bookings')}
+          className={`btn ${activeTab === 'bookings' ? 'btn-primary' : 'btn-secondary'}`}
+          style={{ padding: '0.6rem 1.25rem' }}
+        >
+          <Calendar size={16} /> All Bookings & Dispatch
+        </button>
         <button
           onClick={() => setActiveTab('technicians')}
           className={`btn ${activeTab === 'technicians' ? 'btn-primary' : 'btn-secondary'}`}
@@ -168,7 +201,67 @@ export const AdminDashboard: React.FC = () => {
         </button>
       </div>
 
-      {/* Tab 1: Technician Directory */}
+      {/* Tab: Bookings */}
+      {activeTab === 'bookings' && (
+        <div className="glass-panel" style={{ padding: '2rem' }}>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem' }}>
+            Platform Bookings & Technician Dispatch Oversight
+          </h3>
+
+          {bookingsLoading ? (
+            <div style={{ textAlign: 'center', color: '#94a3b8', padding: '2rem' }}>Loading platform bookings...</div>
+          ) : bookings.length === 0 ? (
+            <div style={{ padding: '2.5rem', textAlign: 'center', background: 'rgba(15, 23, 42, 0.4)', borderRadius: '12px' }}>
+              <p style={{ color: '#94a3b8' }}>No service bookings placed yet.</p>
+            </div>
+          ) : (
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', color: '#f8fafc', fontSize: '0.9rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)', color: '#94a3b8' }}>
+                    <th style={{ padding: '0.75rem 1rem' }}>ID</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Customer</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Service</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Scheduled Slot</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Amount</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Status</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Assigned Technician</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookings.map((b) => (
+                    <tr key={b.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                      <td style={{ padding: '0.75rem 1rem', color: '#64748b' }}>#{b.id}</td>
+                      <td style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{b.customer?.full_name || `Customer #${b.customer_id}`}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: '#06b6d4' }}>{b.service?.name || `Service #${b.service_id}`}</td>
+                      <td style={{ padding: '0.75rem 1rem', color: '#94a3b8' }}>{b.scheduled_date} ({b.scheduled_time_slot})</td>
+                      <td style={{ padding: '0.75rem 1rem', color: '#10b981', fontWeight: 700 }}>${b.total_amount.toFixed(2)}</td>
+                      <td style={{ padding: '0.75rem 1rem' }}>
+                        <span className="role-badge technician">{b.status}</span>
+                      </td>
+                      <td style={{ padding: '0.75rem 1rem' }}>
+                        <select
+                          className="form-select"
+                          style={{ padding: '0.35rem 0.5rem', fontSize: '0.82rem', width: 'auto' }}
+                          value={b.technician_id || ''}
+                          onChange={(e) => handleAssignTechnician(b.id, Number(e.target.value))}
+                        >
+                          <option value="">-- Select Technician --</option>
+                          {technicians.map((t) => (
+                            <option key={t.id} value={t.id}>{t.full_name} ({t.specialization || 'Tech'})</option>
+                          ))}
+                        </select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Tab: Technician Directory */}
       {activeTab === 'technicians' && (
         <div className="glass-panel" style={{ padding: '2rem' }}>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem' }}>
@@ -216,7 +309,7 @@ export const AdminDashboard: React.FC = () => {
         </div>
       )}
 
-      {/* Tab 2: Service Catalog Manager */}
+      {/* Tab: Service Catalog Manager */}
       {activeTab === 'catalog' && (
         <div className="glass-panel" style={{ padding: '2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>

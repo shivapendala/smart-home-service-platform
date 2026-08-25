@@ -1,5 +1,7 @@
 export type UserRole = 'CUSTOMER' | 'TECHNICIAN' | 'ADMIN';
 
+export type BookingStatus = 'PENDING' | 'ASSIGNED' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
+
 export interface User {
   id: number;
   email: string;
@@ -40,6 +42,36 @@ export interface ServiceItem {
   category?: Category;
   created_at: string;
   updated_at: string;
+}
+
+export interface Booking {
+  id: number;
+  customer_id: number;
+  technician_id?: number;
+  service_id: number;
+  scheduled_date: string;
+  scheduled_time_slot: string;
+  address_line: string;
+  city: string;
+  zip_code: string;
+  notes?: string;
+  status: BookingStatus;
+  total_amount: number;
+  created_at: string;
+  updated_at: string;
+  customer?: User;
+  technician?: User;
+  service?: ServiceItem;
+}
+
+export interface BookingCreatePayload {
+  service_id: number;
+  scheduled_date: string;
+  scheduled_time_slot: string;
+  address_line: string;
+  city: string;
+  zip_code: string;
+  notes?: string;
 }
 
 export interface ServiceCreatePayload {
