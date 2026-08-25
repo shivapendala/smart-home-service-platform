@@ -1,125 +1,169 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Zap, Clock, Star, ArrowRight, UserCheck } from 'lucide-react';
+import { 
+  Wrench, 
+  Wind, 
+  Flame, 
+  Droplet, 
+  Zap, 
+  Home, 
+  ArrowRight, 
+  Clock, 
+  Star, 
+  UserCheck 
+} from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export const HomePage: React.FC = () => {
   const { user } = useAuth();
 
-  const serviceCategories = [
-    { title: 'AC Repair & Service', icon: '❄️', count: '120+ Technicians', desc: 'Deep cleaning, gas refill, compressor repair & installation.' },
-    { title: 'Refrigerator Repair', icon: '🧊', count: '85+ Technicians', desc: 'Cooling issues, leak repair, thermostat replacement & maintenance.' },
-    { title: 'Washing Machine Repair', icon: '🧺', count: '95+ Technicians', desc: 'Front load & top load motor repair, drum balancing & drainage.' },
-    { title: 'Plumbing Services', icon: '🚰', count: '150+ Technicians', desc: 'Pipe leakages, tap installation, drain unblocking & fitting.' },
-    { title: 'Electrical Repairs', icon: '⚡', count: '110+ Technicians', desc: 'Short circuit fix, wiring, DB box setup & appliance install.' },
-    { title: 'General Appliance Fix', icon: '🏠', count: '75+ Technicians', desc: 'Microwave repair, water heater service, chimney cleaning.' },
+  const servicesList = [
+    {
+      id: 1,
+      title: 'AC Repair & Cooling',
+      icon: Wind,
+      desc: 'Deep jet cleaning, gas leak refills, compressor replacements, and complete seasonal cooling maintenance.',
+      tag: 'AC & HVAC'
+    },
+    {
+      id: 2,
+      title: 'Plumbing & Fitting',
+      icon: Droplet,
+      desc: 'Accurate leak detection, high-pressure line clearings, faucet installations, and emergency pipe fixes.',
+      tag: 'Plumbing'
+    },
+    {
+      id: 3,
+      title: 'Electrical Upgrades',
+      icon: Zap,
+      desc: 'Short circuit diagnosis, DB box setups, main wiring installation, and smart home appliance connections.',
+      tag: 'Electrical'
+    },
+    {
+      id: 4,
+      title: 'Washing Machine Fix',
+      icon: Wrench,
+      desc: 'Front-load and top-load motor servicing, drum balancing, drainage pump replacement, and noise reduction.',
+      tag: 'Appliance'
+    },
+    {
+      id: 5,
+      title: 'Refrigerator Service',
+      icon: Flame,
+      desc: 'Thermostat replacement, ice maker repairs, gas charging, and sealed system diagnostic checkups.',
+      tag: 'Refrigeration'
+    },
+    {
+      id: 6,
+      title: 'Full Home Maintenance',
+      icon: Home,
+      desc: 'Comprehensive final-inspection home maintenance packages matching enterprise safety & quality guidelines.',
+      tag: 'Full Service'
+    }
   ];
 
   return (
-    <div style={{ padding: '2rem 3rem' }}>
-      {/* Hero Section */}
-      <div className="glass-panel" style={{
-        padding: '4rem 3rem',
-        marginBottom: '3rem',
-        background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{ maxWidth: '750px', position: 'relative', zIndex: 2 }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.35rem 1rem',
-            background: 'rgba(99, 102, 241, 0.15)',
-            border: '1px solid rgba(99, 102, 241, 0.3)',
-            borderRadius: '9999px',
-            color: '#818cf8',
-            fontWeight: 600,
-            fontSize: '0.85rem',
-            marginBottom: '1.25rem'
-          }}>
-            <ShieldCheck size={16} /> Certified & Verified Professional Technicians
+    <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+      
+      {/* Top Banner / Hero matching the Reference Image Section Header */}
+      <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <span className="eyebrow-tag">OUR SERVICES</span>
+        <h1 className="section-title">
+          Tailored Home Service Solutions
+        </h1>
+        <p className="section-subtitle">
+          From quick home repair support to highly customizable maintenance packages, we deploy certified technicians that drive results.
+        </p>
+
+        {!user && (
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link to="/register" className="btn btn-primary">
+              Book Service Now <ArrowRight size={18} />
+            </Link>
+            <Link to="/register?role=TECHNICIAN" className="btn btn-secondary">
+              Join as Technician <UserCheck size={18} />
+            </Link>
           </div>
-
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, lineHeight: 1.15, marginBottom: '1.25rem', color: '#ffffff' }}>
-            Book Trusted Home Services <br />
-            <span style={{
-              background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>
-              At Your Doorstep, In Minutes.
-            </span>
-          </h1>
-
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.6 }}>
-            Connect with background-checked local technicians for AC repair, plumbing, electrical work, and home appliance maintenance. Fast, transparent pricing & guaranteed satisfaction.
-          </p>
-
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {user ? (
-              <Link to={user.role === 'ADMIN' ? '/admin-dashboard' : user.role === 'TECHNICIAN' ? '/technician-dashboard' : '/customer-dashboard'} className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem' }}>
-                Go to Dashboard <ArrowRight size={18} />
-              </Link>
-            ) : (
-              <>
-                <Link to="/register" className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem' }}>
-                  Book Service Now <ArrowRight size={18} />
-                </Link>
-                <Link to="/register?role=TECHNICIAN" className="btn btn-secondary" style={{ padding: '0.85rem 1.75rem', fontSize: '1rem' }}>
-                  Join as Technician <UserCheck size={18} />
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
+        )}
       </div>
 
-      {/* Service Categories */}
-      <div style={{ marginBottom: '3rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1.5rem' }}>
-          <div>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#f8fafc' }}>Popular Home Services</h2>
-            <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Choose from top rated service categories in your area</p>
-          </div>
-        </div>
+      {/* Cards Grid matching the Reference Image Cards */}
+      <div className="grid-3" style={{ marginBottom: '5rem' }}>
+        {servicesList.map((service) => {
+          const IconComponent = service.icon;
+          return (
+            <div key={service.id} className="card" style={{ padding: '2rem 1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div className="icon-box">
+                  <IconComponent size={24} />
+                </div>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.75rem' }}>
+                  {service.title}
+                </h3>
+                <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.75rem' }}>
+                  {service.desc}
+                </p>
+              </div>
 
-        <div className="grid-3">
-          {serviceCategories.map((cat, idx) => (
-            <div key={idx} className="glass-panel" style={{ padding: '1.75rem', cursor: 'pointer' }}>
-              <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{cat.icon}</div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.35rem', color: '#f8fafc' }}>{cat.title}</h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginBottom: '1rem', minHeight: '40px' }}>{cat.desc}</p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                <span style={{ fontSize: '0.8rem', color: '#06b6d4', fontWeight: 600 }}>{cat.count}</span>
-                <span style={{ color: '#818cf8', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  Book Service <ArrowRight size={14} />
-                </span>
+              <div>
+                <Link to="/services" className="btn btn-outline" style={{ width: 'auto', display: 'inline-flex' }}>
+                  Learn More
+                </Link>
               </div>
             </div>
-          ))}
+          );
+        })}
+      </div>
+
+      {/* Additional Features Section matching light clean card layout */}
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <span className="eyebrow-tag">WHY CHOOSE US</span>
+        <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#0f172a', marginBottom: '1rem' }}>
+          Built for Quality & Speed
+        </h2>
+        <p style={{ color: '#64748b', fontSize: '1rem', maxWidth: '600px', margin: '0 auto 2.5rem auto' }}>
+          Transparent pricing, verified background checks, and instant dispatch tracking for your home.
+        </p>
+      </div>
+
+      <div className="grid-3">
+        <div className="card" style={{ padding: '2rem' }}>
+          <div className="icon-box">
+            <Zap size={24} />
+          </div>
+          <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
+            Instant Dispatch
+          </h4>
+          <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
+            Smart matching system assigns qualified certified technicians in under 5 minutes.
+          </p>
+        </div>
+
+        <div className="card" style={{ padding: '2rem' }}>
+          <div className="icon-box">
+            <Clock size={24} />
+          </div>
+          <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
+            Real-Time Tracking
+          </h4>
+          <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
+            Track technician dispatch status, arrival countdowns, and completion stages live.
+          </p>
+        </div>
+
+        <div className="card" style={{ padding: '2rem' }}>
+          <div className="icon-box">
+            <Star size={24} />
+          </div>
+          <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
+            Verified Quality
+          </h4>
+          <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.6' }}>
+            All technicians are background-checked and customer-rated for transparent high standards.
+          </p>
         </div>
       </div>
 
-      {/* Platform Features */}
-      <div className="grid-3" style={{ marginTop: '3rem' }}>
-        <div className="glass-panel" style={{ padding: '1.75rem' }}>
-          <Zap size={32} color="#6366f1" style={{ marginBottom: '1rem' }} />
-          <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Instant Technician Assignment</h4>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Smart matching system assigns the nearest qualified technician to your request in under 5 minutes.</p>
-        </div>
-        <div className="glass-panel" style={{ padding: '1.75rem' }}>
-          <Clock size={32} color="#06b6d4" style={{ marginBottom: '1rem' }} />
-          <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Real-time Service Tracking</h4>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Track technician status, arrival time, and service stage with clear live updates.</p>
-        </div>
-        <div className="glass-panel" style={{ padding: '1.75rem' }}>
-          <Star size={32} color="#f59e0b" style={{ marginBottom: '1rem' }} />
-          <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Verified Reviews & Ratings</h4>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>All technicians are background-checked and customer rated for consistent premium quality.</p>
-        </div>
-      </div>
     </div>
   );
 };

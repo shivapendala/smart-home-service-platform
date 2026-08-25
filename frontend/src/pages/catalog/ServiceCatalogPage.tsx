@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Clock, ArrowRight, Sparkles, Filter, Check } from 'lucide-react';
+import { Search, Clock, ArrowRight, Filter, Check } from 'lucide-react';
 import { catalogService } from '../../services/api';
 import { Category, ServiceItem } from '../../types';
 import { useAuth } from '../../context/AuthContext';
@@ -44,34 +44,28 @@ export const ServiceCatalogPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '2rem 3rem' }}>
+    <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '3rem 1.5rem' }}>
       {/* Catalog Header */}
-      <div className="glass-panel" style={{
-        padding: '3rem 2.5rem',
-        marginBottom: '2rem',
-        background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#06b6d4', fontWeight: 600, fontSize: '0.88rem', marginBottom: '0.5rem' }}>
-          <Sparkles size={16} /> Instant Online Booking & Upfront Pricing
-        </div>
-        <h1 style={{ fontSize: '2.25rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.75rem' }}>
-          Home Service Catalog
+      <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <span className="eyebrow-tag">OUR SERVICES CATALOG</span>
+        <h1 className="section-title">
+          Professional Home Services
         </h1>
-        <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '650px', marginBottom: '1.75rem' }}>
-          Browse certified appliance repair, plumbing, and electrical services. All prices are upfront with no hidden diagnostic charges.
+        <p className="section-subtitle">
+          Browse certified appliance repair, plumbing, and electrical services with transparent upfront pricing and no hidden diagnostic fees.
         </p>
 
         {/* Search Bar */}
-        <div style={{ position: 'relative', maxWidth: '540px' }}>
+        <div style={{ position: 'relative', maxWidth: '560px', margin: '0 auto' }}>
           <input
             type="text"
             className="form-input"
-            placeholder="Search services (e.g. AC Deep Cleaning, Leak Fix, Wiring)..."
+            placeholder="Search services (e.g. AC Deep Cleaning, Pipe Leak Fix, Wiring)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{ paddingLeft: '2.75rem', height: '50px', fontSize: '1rem', borderRadius: '12px' }}
+            style={{ paddingLeft: '2.8rem', height: '52px', fontSize: '1rem', borderRadius: '12px' }}
           />
-          <Search size={20} color="#64748b" style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
+          <Search size={20} color="#94a3b8" style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
         </div>
       </div>
 
@@ -81,22 +75,25 @@ export const ServiceCatalogPage: React.FC = () => {
         gap: '0.75rem',
         overflowX: 'auto',
         paddingBottom: '0.75rem',
-        marginBottom: '2rem'
+        marginBottom: '2.5rem',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
       }}>
         <button
           onClick={() => setSelectedCategory(null)}
           style={{
-            padding: '0.65rem 1.25rem',
+            padding: '0.65rem 1.35rem',
             borderRadius: '9999px',
-            border: selectedCategory === null ? '1px solid #6366f1' : '1px solid rgba(255,255,255,0.1)',
-            background: selectedCategory === null ? 'rgba(99, 102, 241, 0.2)' : 'rgba(30, 41, 59, 0.6)',
-            color: selectedCategory === null ? '#818cf8' : '#94a3b8',
+            border: selectedCategory === null ? '1.5px solid #ef4444' : '1px solid #e2e8f0',
+            background: selectedCategory === null ? 'rgba(239, 68, 68, 0.08)' : '#ffffff',
+            color: selectedCategory === null ? '#ef4444' : '#64748b',
             fontWeight: 600,
             cursor: 'pointer',
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.35rem'
+            gap: '0.4rem',
+            transition: 'all 0.2s'
           }}
         >
           <Filter size={14} /> All Categories
@@ -106,17 +103,18 @@ export const ServiceCatalogPage: React.FC = () => {
             key={cat.id}
             onClick={() => setSelectedCategory(cat.id)}
             style={{
-              padding: '0.65rem 1.25rem',
+              padding: '0.65rem 1.35rem',
               borderRadius: '9999px',
-              border: selectedCategory === cat.id ? '1px solid #06b6d4' : '1px solid rgba(255,255,255,0.1)',
-              background: selectedCategory === cat.id ? 'rgba(6, 182, 212, 0.2)' : 'rgba(30, 41, 59, 0.6)',
-              color: selectedCategory === cat.id ? '#38bdf8' : '#94a3b8',
+              border: selectedCategory === cat.id ? '1.5px solid #ef4444' : '1px solid #e2e8f0',
+              background: selectedCategory === cat.id ? 'rgba(239, 68, 68, 0.08)' : '#ffffff',
+              color: selectedCategory === cat.id ? '#ef4444' : '#64748b',
               fontWeight: 600,
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.4rem'
+              gap: '0.4rem',
+              transition: 'all 0.2s'
             }}
           >
             <span>{cat.icon}</span>
@@ -127,54 +125,54 @@ export const ServiceCatalogPage: React.FC = () => {
 
       {/* Services Grid */}
       {loading ? (
-        <div style={{ textAlign: 'center', color: '#94a3b8', padding: '4rem 0' }}>
+        <div style={{ textAlign: 'center', color: '#64748b', padding: '4rem 0' }}>
           Loading service catalog...
         </div>
       ) : services.length === 0 ? (
-        <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center', color: '#94a3b8' }}>
+        <div className="card" style={{ padding: '3rem', textAlign: 'center', color: '#64748b' }}>
           No services match your selected category or search filter.
         </div>
       ) : (
         <div className="grid-3">
           {services.map((service) => (
-            <div key={service.id} className="glass-panel" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div key={service.id} className="card" style={{ padding: '2rem 1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f8fafc' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a' }}>
                     {service.name}
                   </h3>
                   <span style={{
                     fontSize: '1.25rem',
                     fontWeight: 800,
-                    color: '#10b981',
-                    background: 'rgba(16, 185, 129, 0.15)',
+                    color: '#ef4444',
+                    background: 'rgba(239, 68, 68, 0.08)',
                     padding: '0.25rem 0.75rem',
                     borderRadius: '8px',
-                    border: '1px solid rgba(16, 185, 129, 0.3)'
+                    border: '1px solid rgba(239, 68, 68, 0.2)'
                   }}>
                     ${service.base_price.toFixed(2)}
                   </span>
                 </div>
 
-                <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+                <p style={{ color: '#64748b', fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
                   {service.description}
                 </p>
               </div>
 
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#64748b', fontSize: '0.85rem', marginBottom: '1.25rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                    <Clock size={14} color="#06b6d4" /> {service.duration_minutes} Mins Service
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1.25rem', paddingTop: '0.75rem', borderTop: '1px solid #f1f5f9' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#64748b' }}>
+                    <Clock size={14} color="#ef4444" /> {service.duration_minutes} Mins Duration
                   </span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                    <Check size={14} color="#10b981" /> Verified Price
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#059669' }}>
+                    <Check size={14} color="#059669" /> Transparent Price
                   </span>
                 </div>
 
                 <button
                   onClick={() => handleBookClick()}
-                  className="btn btn-primary"
-                  style={{ width: '100%', padding: '0.7rem' }}
+                  className="btn btn-outline"
+                  style={{ width: '100%', padding: '0.65rem' }}
                 >
                   Book Service <ArrowRight size={16} />
                 </button>
