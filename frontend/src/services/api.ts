@@ -5,7 +5,25 @@ import {
   Booking, BookingCreatePayload, BookingStatus
 } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/v1';
+const getApiBaseUrl = (): string => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+
+  if (typeof window !== 'undefined') {
+    const isCapacitor = (window as any).Capacitor?.isNativePlatform?.();
+    const isLocalhostScheme = window.location.hostname === 'localhost' && window.location.port === '';
+    const isFileScheme = window.location.protocol === 'file:';
+
+    if (isCapacitor || isLocalhostScheme || isFileScheme) {
+      return 'http://192.168.1.36:8000/api/v1';
+    }
+  }
+
+  return '/api/v1';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
@@ -14,7 +32,6 @@ export const api = axios.create({
   },
 });
 
-// Inject Authorization header if token exists in localStorage
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('access_token');
   if (token && config.headers) {
@@ -112,3 +129,5 @@ export const bookingService = {
     return response.data;
   }
 };
+
+export default api;
