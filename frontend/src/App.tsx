@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { Navbar } from './components/layout/Navbar';
+import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { Footer } from './components/layout/Footer';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 
@@ -54,6 +55,7 @@ export const App: React.FC = () => {
             </Routes>
           </main>
           <Footer />
+          <MobileBottomNav />
         </div>
       </Router>
     </AuthProvider>

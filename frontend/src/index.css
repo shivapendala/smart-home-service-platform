@@ -44,6 +44,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -150,6 +151,7 @@ a:hover {
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
+  min-height: 44px;
   transition: all var(--transition-fast);
 }
 
@@ -198,8 +200,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.1rem 3.5rem;
-  background: rgba(255, 255, 255, 0.92);
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
@@ -237,6 +239,42 @@ a:hover {
 }
 
 .nav-item:hover, .nav-item.active {
+  color: var(--primary);
+}
+
+/* Native Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  height: 64px;
+  z-index: 1000;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  flex: 1;
+  height: 100%;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-item.active {
   color: var(--primary);
 }
 
@@ -294,6 +332,7 @@ a:hover {
   color: var(--text-primary);
   font-family: var(--font-family);
   font-size: 0.95rem;
+  min-height: 46px;
   transition: all var(--transition-fast);
 }
 
@@ -320,7 +359,7 @@ a:hover {
 .footer {
   background: #ffffff;
   border-top: 1px solid var(--border-color);
-  padding: 2.5rem 3rem;
+  padding: 2.5rem 2rem;
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -347,4 +386,41 @@ a:hover {
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
   color: #065f46;
+}
+
+/* 📱 Responsive Mobile App Optimizations */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.85rem 1.25rem;
+  }
+  
+  .nav-links {
+    display: none; /* Hide desktop nav links on smartphone screens */
+  }
+
+  .mobile-bottom-nav {
+    display: flex; /* Show mobile bottom tab navigation bar on mobile */
+  }
+
+  .main-content {
+    padding-bottom: 80px; /* Safe space for bottom navigation bar */
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer {
+    padding-bottom: 90px;
+  }
 }
