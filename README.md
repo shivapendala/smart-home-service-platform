@@ -1,0 +1,1 @@
+# smart-home-service-platform
