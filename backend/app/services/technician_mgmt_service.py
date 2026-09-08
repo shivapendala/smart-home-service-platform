@@ -434,3 +434,78 @@ class TechnicianMgmtService:
         if master_entity_id:
             query = query.filter(TechnicianMgmtRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: TechnicianMgmtRelationalComponent26Create) -> TechnicianMgmtRelationalComponent26:
+        comp = TechnicianMgmtRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[TechnicianMgmtRelationalComponent26]:
+        query = db.query(TechnicianMgmtRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(TechnicianMgmtRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: TechnicianMgmtRelationalComponent27Create) -> TechnicianMgmtRelationalComponent27:
+        comp = TechnicianMgmtRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[TechnicianMgmtRelationalComponent27]:
+        query = db.query(TechnicianMgmtRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(TechnicianMgmtRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: TechnicianMgmtRelationalComponent28Create) -> TechnicianMgmtRelationalComponent28:
+        comp = TechnicianMgmtRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[TechnicianMgmtRelationalComponent28]:
+        query = db.query(TechnicianMgmtRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(TechnicianMgmtRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: TechnicianMgmtRelationalComponent29Create) -> TechnicianMgmtRelationalComponent29:
+        comp = TechnicianMgmtRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[TechnicianMgmtRelationalComponent29]:
+        query = db.query(TechnicianMgmtRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(TechnicianMgmtRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: TechnicianMgmtRelationalComponent30Create) -> TechnicianMgmtRelationalComponent30:
+        comp = TechnicianMgmtRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[TechnicianMgmtRelationalComponent30]:
+        query = db.query(TechnicianMgmtRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(TechnicianMgmtRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

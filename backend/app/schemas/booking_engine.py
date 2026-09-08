@@ -1,4 +1,31 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.booking_engine import RecurrenceFrequency, ScheduleStatus
+
+class RecurringScheduleCreate(BaseModel):
+    service_id: int
+    address_id: int
+    frequency: RecurrenceFrequency = RecurrenceFrequency.MONTHLY
+    start_date: date
+    end_date: Optional[date] = None
+    preferred_time_slot: str
+
+class RecurringScheduleResponse(RecurringScheduleCreate):
+    id: int
+    customer_id: int
+    status: ScheduleStatus
+    next_execution_date: date
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class MultiTechAssignmentCreate(BaseModel):
+    booking_id: int
+    technician_id: int
+    role_title: str = "ASSISTANT_TECHNICIAN"
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.booking_engine import BookingEngineStatus, BookingEnginePriority, BookingEngineCategoryType
@@ -533,5 +560,100 @@ class BookingEngineRelationalComponent25Response(BookingEngineRelationalComponen
     master_entity_id: Optional[int] = None
     created_at: datetime
     updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent26Create(BookingEngineRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent26Response(BookingEngineRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent27Create(BookingEngineRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent27Response(BookingEngineRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent28Create(BookingEngineRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent28Response(BookingEngineRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent29Create(BookingEngineRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent29Response(BookingEngineRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingEngineRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingEngineRelationalComponent30Create(BookingEngineRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class BookingEngineRelationalComponent30Response(BookingEngineRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)

@@ -1,4 +1,63 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.technician_mgmt import DayOfWeek, PayoutStatus, DispatchPriority
+
+class TechnicianShiftCreate(BaseModel):
+    day_of_week: DayOfWeek
+    shift_start: time
+    shift_end: time
+    break_start: Optional[time] = None
+    break_end: Optional[time] = None
+    is_active: bool = True
+    max_jobs_per_shift: int = 6
+
+class TechnicianShiftResponse(TechnicianShiftCreate):
+    id: int
+    technician_id: int
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianServiceZoneCreate(BaseModel):
+    zone_name: str
+    zip_code: str
+    city: str
+    state: str
+    latitude_center: Optional[float] = None
+    longitude_center: Optional[float] = None
+    radius_km: float = 15.0
+    is_primary_zone: bool = True
+
+class TechnicianSkillCreate(BaseModel):
+    skill_name: str
+    category_name: str
+    proficiency_level: str = "INTERMEDIATE"
+    years_experience: int = 1
+    is_certified: bool = False
+
+class TechnicianCertificationCreate(BaseModel):
+    certification_title: str
+    issuing_authority: str
+    license_number: str
+    issue_date: date
+    expiry_date: Optional[date] = None
+
+class EmergencyDispatchCreate(BaseModel):
+    booking_id: int
+    priority: DispatchPriority = DispatchPriority.HIGH
+    dispatch_reason: str
+    response_sla_minutes: int = 30
+
+class TechnicianPayoutCreate(BaseModel):
+    technician_id: int
+    period_start: date
+    period_end: date
+    gross_earnings: float
+    platform_commission: float
+    payout_method: str = "BANK_TRANSFER"
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.technician_mgmt import TechnicianMgmtStatus, TechnicianMgmtPriority, TechnicianMgmtCategoryType
@@ -533,5 +592,100 @@ class TechnicianMgmtRelationalComponent25Response(TechnicianMgmtRelationalCompon
     master_entity_id: Optional[int] = None
     created_at: datetime
     updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent26Create(TechnicianMgmtRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent26Response(TechnicianMgmtRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent27Create(TechnicianMgmtRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent27Response(TechnicianMgmtRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent28Create(TechnicianMgmtRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent28Response(TechnicianMgmtRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent29Create(TechnicianMgmtRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent29Response(TechnicianMgmtRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class TechnicianMgmtRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class TechnicianMgmtRelationalComponent30Create(TechnicianMgmtRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class TechnicianMgmtRelationalComponent30Response(TechnicianMgmtRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)

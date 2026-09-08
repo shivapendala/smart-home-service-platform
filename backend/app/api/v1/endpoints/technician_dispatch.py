@@ -457,3 +457,4 @@ def list_components_25(
     current_user: User = Depends(get_current_active_user)
 ):
     return TechnicianDispatchService.list_components_25(db, master_entity_id)
+

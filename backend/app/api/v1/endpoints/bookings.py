@@ -53,8 +53,8 @@ def list_customer_bookings(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    """Fetch bookings scoped strictly to the current customer."""
-    return BookingService.get_customer_bookings(db=db, customer_id=current_user.id)
+    """Fetch bookings scoped by current user's role (Customer: own, Technician: assigned/pending, Admin: all)."""
+    return BookingService.get_user_bookings(db=db, current_user=current_user)
 
 
 @router.get("/{booking_id}", response_model=BookingResponse)

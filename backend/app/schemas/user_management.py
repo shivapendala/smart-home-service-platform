@@ -505,3 +505,98 @@ class UserManagementRelationalComponent25Response(UserManagementRelationalCompon
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class UserManagementRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class UserManagementRelationalComponent26Create(UserManagementRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class UserManagementRelationalComponent26Response(UserManagementRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class UserManagementRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class UserManagementRelationalComponent27Create(UserManagementRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class UserManagementRelationalComponent27Response(UserManagementRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class UserManagementRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class UserManagementRelationalComponent28Create(UserManagementRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class UserManagementRelationalComponent28Response(UserManagementRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class UserManagementRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class UserManagementRelationalComponent29Create(UserManagementRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class UserManagementRelationalComponent29Response(UserManagementRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class UserManagementRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class UserManagementRelationalComponent30Create(UserManagementRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class UserManagementRelationalComponent30Response(UserManagementRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

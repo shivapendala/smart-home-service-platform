@@ -23,11 +23,11 @@ def get_current_user(
     payload = decode_access_token(token)
     if not payload:
         raise credentials_exception
-    
+
     user_id_str = payload.get("sub")
     if user_id_str is None:
         raise credentials_exception
-    
+
     try:
         user_id = int(user_id_str)
     except ValueError:
@@ -54,3 +54,7 @@ def require_roles(allowed_roles: List[UserRole]):
             )
         return current_user
     return role_checker
+
+
+get_current_active_user = get_current_user
+get_current_admin_user = require_roles([UserRole.ADMIN])
