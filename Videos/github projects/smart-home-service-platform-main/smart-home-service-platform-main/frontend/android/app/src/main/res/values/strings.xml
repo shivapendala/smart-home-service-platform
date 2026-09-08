@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SmartHomePlatform</string>
+    <string name="title_activity_main">SmartHomePlatform</string>
+    <string name="package_name">com.smarthome.service</string>
+    <string name="custom_url_scheme">com.smarthome.service</string>
+</resources>
