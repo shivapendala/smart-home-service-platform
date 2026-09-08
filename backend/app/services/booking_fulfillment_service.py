@@ -434,3 +434,78 @@ class BookingFulfillmentService:
         if master_entity_id:
             query = query.filter(BookingFulfillmentRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: BookingFulfillmentRelationalComponent26Create) -> BookingFulfillmentRelationalComponent26:
+        comp = BookingFulfillmentRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[BookingFulfillmentRelationalComponent26]:
+        query = db.query(BookingFulfillmentRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(BookingFulfillmentRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: BookingFulfillmentRelationalComponent27Create) -> BookingFulfillmentRelationalComponent27:
+        comp = BookingFulfillmentRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[BookingFulfillmentRelationalComponent27]:
+        query = db.query(BookingFulfillmentRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(BookingFulfillmentRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: BookingFulfillmentRelationalComponent28Create) -> BookingFulfillmentRelationalComponent28:
+        comp = BookingFulfillmentRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[BookingFulfillmentRelationalComponent28]:
+        query = db.query(BookingFulfillmentRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(BookingFulfillmentRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: BookingFulfillmentRelationalComponent29Create) -> BookingFulfillmentRelationalComponent29:
+        comp = BookingFulfillmentRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[BookingFulfillmentRelationalComponent29]:
+        query = db.query(BookingFulfillmentRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(BookingFulfillmentRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: BookingFulfillmentRelationalComponent30Create) -> BookingFulfillmentRelationalComponent30:
+        comp = BookingFulfillmentRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[BookingFulfillmentRelationalComponent30]:
+        query = db.query(BookingFulfillmentRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(BookingFulfillmentRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

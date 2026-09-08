@@ -434,3 +434,78 @@ class CustomerPortalService:
         if master_entity_id:
             query = query.filter(CustomerPortalRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: CustomerPortalRelationalComponent26Create) -> CustomerPortalRelationalComponent26:
+        comp = CustomerPortalRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerPortalRelationalComponent26]:
+        query = db.query(CustomerPortalRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(CustomerPortalRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: CustomerPortalRelationalComponent27Create) -> CustomerPortalRelationalComponent27:
+        comp = CustomerPortalRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerPortalRelationalComponent27]:
+        query = db.query(CustomerPortalRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(CustomerPortalRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: CustomerPortalRelationalComponent28Create) -> CustomerPortalRelationalComponent28:
+        comp = CustomerPortalRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerPortalRelationalComponent28]:
+        query = db.query(CustomerPortalRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(CustomerPortalRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: CustomerPortalRelationalComponent29Create) -> CustomerPortalRelationalComponent29:
+        comp = CustomerPortalRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerPortalRelationalComponent29]:
+        query = db.query(CustomerPortalRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(CustomerPortalRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: CustomerPortalRelationalComponent30Create) -> CustomerPortalRelationalComponent30:
+        comp = CustomerPortalRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[CustomerPortalRelationalComponent30]:
+        query = db.query(CustomerPortalRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(CustomerPortalRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

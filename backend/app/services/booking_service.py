@@ -147,6 +147,20 @@ class BookingService:
         db.refresh(booking)
         return booking
 
+    @classmethod
+    def get_user_bookings(cls, db: Session, current_user: User) -> List[Booking]:
+        """Fetch bookings scoped strictly by current user's role (Customer: own, Technician: assigned/pending, Admin: all)."""
+        if current_user.role == UserRole.ADMIN:
+            return db.query(Booking).order_by(Booking.created_at.desc()).all()
+        elif current_user.role == UserRole.TECHNICIAN:
+            return db.query(Booking).filter(
+                (Booking.technician_id == current_user.id) | (Booking.status == BookingStatus.PENDING)
+            ).order_by(Booking.created_at.desc()).all()
+        else:
+            return db.query(Booking).filter(
+                Booking.customer_id == current_user.id
+            ).order_by(Booking.created_at.desc()).all()
+
     @staticmethod
     def get_customer_bookings(db: Session, customer_id: int) -> List[Booking]:
         """Fetch all bookings belonging exclusively to the customer."""

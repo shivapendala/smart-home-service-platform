@@ -505,3 +505,98 @@ class BookingFulfillmentRelationalComponent25Response(BookingFulfillmentRelation
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class BookingFulfillmentRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingFulfillmentRelationalComponent26Create(BookingFulfillmentRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class BookingFulfillmentRelationalComponent26Response(BookingFulfillmentRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingFulfillmentRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingFulfillmentRelationalComponent27Create(BookingFulfillmentRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class BookingFulfillmentRelationalComponent27Response(BookingFulfillmentRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingFulfillmentRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingFulfillmentRelationalComponent28Create(BookingFulfillmentRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class BookingFulfillmentRelationalComponent28Response(BookingFulfillmentRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingFulfillmentRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingFulfillmentRelationalComponent29Create(BookingFulfillmentRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class BookingFulfillmentRelationalComponent29Response(BookingFulfillmentRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookingFulfillmentRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class BookingFulfillmentRelationalComponent30Create(BookingFulfillmentRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class BookingFulfillmentRelationalComponent30Response(BookingFulfillmentRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

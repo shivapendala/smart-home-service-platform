@@ -434,3 +434,78 @@ class ServiceCatalogService:
         if master_entity_id:
             query = query.filter(ServiceCatalogRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: ServiceCatalogRelationalComponent26Create) -> ServiceCatalogRelationalComponent26:
+        comp = ServiceCatalogRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[ServiceCatalogRelationalComponent26]:
+        query = db.query(ServiceCatalogRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(ServiceCatalogRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: ServiceCatalogRelationalComponent27Create) -> ServiceCatalogRelationalComponent27:
+        comp = ServiceCatalogRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[ServiceCatalogRelationalComponent27]:
+        query = db.query(ServiceCatalogRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(ServiceCatalogRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: ServiceCatalogRelationalComponent28Create) -> ServiceCatalogRelationalComponent28:
+        comp = ServiceCatalogRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[ServiceCatalogRelationalComponent28]:
+        query = db.query(ServiceCatalogRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(ServiceCatalogRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: ServiceCatalogRelationalComponent29Create) -> ServiceCatalogRelationalComponent29:
+        comp = ServiceCatalogRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[ServiceCatalogRelationalComponent29]:
+        query = db.query(ServiceCatalogRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(ServiceCatalogRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: ServiceCatalogRelationalComponent30Create) -> ServiceCatalogRelationalComponent30:
+        comp = ServiceCatalogRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[ServiceCatalogRelationalComponent30]:
+        query = db.query(ServiceCatalogRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(ServiceCatalogRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

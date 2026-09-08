@@ -505,3 +505,98 @@ class ServiceCatalogRelationalComponent25Response(ServiceCatalogRelationalCompon
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class ServiceCatalogRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ServiceCatalogRelationalComponent26Create(ServiceCatalogRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class ServiceCatalogRelationalComponent26Response(ServiceCatalogRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ServiceCatalogRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ServiceCatalogRelationalComponent27Create(ServiceCatalogRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class ServiceCatalogRelationalComponent27Response(ServiceCatalogRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ServiceCatalogRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ServiceCatalogRelationalComponent28Create(ServiceCatalogRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class ServiceCatalogRelationalComponent28Response(ServiceCatalogRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ServiceCatalogRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ServiceCatalogRelationalComponent29Create(ServiceCatalogRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class ServiceCatalogRelationalComponent29Response(ServiceCatalogRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class ServiceCatalogRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class ServiceCatalogRelationalComponent30Create(ServiceCatalogRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class ServiceCatalogRelationalComponent30Response(ServiceCatalogRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

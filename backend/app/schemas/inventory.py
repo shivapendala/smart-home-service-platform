@@ -1,4 +1,35 @@
 from datetime import datetime, date, time
+from typing import Optional, List
+from pydantic import BaseModel, Field, ConfigDict
+from app.models.inventory import MovementType
+
+class SparePartCreate(BaseModel):
+    sku: str
+    part_name: str
+    category_name: str
+    description: Optional[str] = None
+    cost_price: float
+    selling_price: float
+    reorder_threshold: int = 5
+
+class SparePartResponse(SparePartCreate):
+    id: int
+    is_active: bool
+    created_at: datetime
+    model_config = ConfigDict(from_attributes=True)
+
+class VanStockTransferCreate(BaseModel):
+    technician_id: int
+    spare_part_id: int
+    quantity: int
+
+class PartUsageCreate(BaseModel):
+    booking_id: int
+    spare_part_id: int
+    quantity_used: int = 1
+
+
+from datetime import datetime, date, time
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field, ConfigDict
 from app.models.inventory import InventoryStatus, InventoryPriority, InventoryCategoryType
@@ -533,5 +564,100 @@ class InventoryRelationalComponent25Response(InventoryRelationalComponent25Base)
     master_entity_id: Optional[int] = None
     created_at: datetime
     updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class InventoryRelationalComponent26Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class InventoryRelationalComponent26Create(InventoryRelationalComponent26Base):
+    master_entity_id: Optional[int] = None
+
+class InventoryRelationalComponent26Response(InventoryRelationalComponent26Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class InventoryRelationalComponent27Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class InventoryRelationalComponent27Create(InventoryRelationalComponent27Base):
+    master_entity_id: Optional[int] = None
+
+class InventoryRelationalComponent27Response(InventoryRelationalComponent27Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class InventoryRelationalComponent28Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class InventoryRelationalComponent28Create(InventoryRelationalComponent28Base):
+    master_entity_id: Optional[int] = None
+
+class InventoryRelationalComponent28Response(InventoryRelationalComponent28Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class InventoryRelationalComponent29Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class InventoryRelationalComponent29Create(InventoryRelationalComponent29Base):
+    master_entity_id: Optional[int] = None
+
+class InventoryRelationalComponent29Response(InventoryRelationalComponent29Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+class InventoryRelationalComponent30Base(BaseModel):
+    component_name: str = Field(..., max_length=150)
+    component_type: str = "STANDARD"
+    metric_value: float = 0.0
+    cost_factor: float = 1.0
+    sequence_order: int = 1
+    status_flag: str = "ENABLED"
+    notes_text: Optional[str] = None
+
+class InventoryRelationalComponent30Create(InventoryRelationalComponent30Base):
+    master_entity_id: Optional[int] = None
+
+class InventoryRelationalComponent30Response(InventoryRelationalComponent30Base):
+    id: int
+    master_entity_id: Optional[int] = None
+    created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)

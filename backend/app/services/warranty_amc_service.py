@@ -434,3 +434,78 @@ class WarrantyAmcService:
         if master_entity_id:
             query = query.filter(WarrantyAmcRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: WarrantyAmcRelationalComponent26Create) -> WarrantyAmcRelationalComponent26:
+        comp = WarrantyAmcRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[WarrantyAmcRelationalComponent26]:
+        query = db.query(WarrantyAmcRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(WarrantyAmcRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: WarrantyAmcRelationalComponent27Create) -> WarrantyAmcRelationalComponent27:
+        comp = WarrantyAmcRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[WarrantyAmcRelationalComponent27]:
+        query = db.query(WarrantyAmcRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(WarrantyAmcRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: WarrantyAmcRelationalComponent28Create) -> WarrantyAmcRelationalComponent28:
+        comp = WarrantyAmcRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[WarrantyAmcRelationalComponent28]:
+        query = db.query(WarrantyAmcRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(WarrantyAmcRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: WarrantyAmcRelationalComponent29Create) -> WarrantyAmcRelationalComponent29:
+        comp = WarrantyAmcRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[WarrantyAmcRelationalComponent29]:
+        query = db.query(WarrantyAmcRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(WarrantyAmcRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: WarrantyAmcRelationalComponent30Create) -> WarrantyAmcRelationalComponent30:
+        comp = WarrantyAmcRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[WarrantyAmcRelationalComponent30]:
+        query = db.query(WarrantyAmcRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(WarrantyAmcRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()

@@ -102,3 +102,5 @@ class SupportTicketService:
         db.commit()
         db.refresh(survey)
         return survey
+
+SupportTicketsService = SupportTicketService

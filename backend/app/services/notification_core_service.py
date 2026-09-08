@@ -434,3 +434,78 @@ class NotificationCoreService:
         if master_entity_id:
             query = query.filter(NotificationCoreRelationalComponent25.master_entity_id == master_entity_id)
         return query.all()
+
+    @staticmethod
+    def add_component_26(db: Session, comp_in: NotificationCoreRelationalComponent26Create) -> NotificationCoreRelationalComponent26:
+        comp = NotificationCoreRelationalComponent26(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_26(db: Session, master_entity_id: Optional[int] = None) -> List[NotificationCoreRelationalComponent26]:
+        query = db.query(NotificationCoreRelationalComponent26)
+        if master_entity_id:
+            query = query.filter(NotificationCoreRelationalComponent26.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_27(db: Session, comp_in: NotificationCoreRelationalComponent27Create) -> NotificationCoreRelationalComponent27:
+        comp = NotificationCoreRelationalComponent27(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_27(db: Session, master_entity_id: Optional[int] = None) -> List[NotificationCoreRelationalComponent27]:
+        query = db.query(NotificationCoreRelationalComponent27)
+        if master_entity_id:
+            query = query.filter(NotificationCoreRelationalComponent27.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_28(db: Session, comp_in: NotificationCoreRelationalComponent28Create) -> NotificationCoreRelationalComponent28:
+        comp = NotificationCoreRelationalComponent28(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_28(db: Session, master_entity_id: Optional[int] = None) -> List[NotificationCoreRelationalComponent28]:
+        query = db.query(NotificationCoreRelationalComponent28)
+        if master_entity_id:
+            query = query.filter(NotificationCoreRelationalComponent28.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_29(db: Session, comp_in: NotificationCoreRelationalComponent29Create) -> NotificationCoreRelationalComponent29:
+        comp = NotificationCoreRelationalComponent29(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_29(db: Session, master_entity_id: Optional[int] = None) -> List[NotificationCoreRelationalComponent29]:
+        query = db.query(NotificationCoreRelationalComponent29)
+        if master_entity_id:
+            query = query.filter(NotificationCoreRelationalComponent29.master_entity_id == master_entity_id)
+        return query.all()
+
+    @staticmethod
+    def add_component_30(db: Session, comp_in: NotificationCoreRelationalComponent30Create) -> NotificationCoreRelationalComponent30:
+        comp = NotificationCoreRelationalComponent30(**comp_in.model_dump())
+        db.add(comp)
+        db.commit()
+        db.refresh(comp)
+        return comp
+
+    @staticmethod
+    def list_components_30(db: Session, master_entity_id: Optional[int] = None) -> List[NotificationCoreRelationalComponent30]:
+        query = db.query(NotificationCoreRelationalComponent30)
+        if master_entity_id:
+            query = query.filter(NotificationCoreRelationalComponent30.master_entity_id == master_entity_id)
+        return query.all()
