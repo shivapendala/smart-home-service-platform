@@ -1,0 +1,117 @@
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+from core.models import AbstractBaseModel
+
+class Role(AbstractBaseModel):
+    name = models.CharField(max_length=50, unique=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Permission(AbstractBaseModel):
+    name = models.CharField(max_length=100, unique=True)
+    codename = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
+
+class Municipality(AbstractBaseModel):
+    name = models.CharField(max_length=255, unique=True)
+    state = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    contact_email = models.EmailField(blank=True)
+    contact_phone = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Department(AbstractBaseModel):
+    municipality = models.ForeignKey(Municipality, on_delete=models.CASCADE, related_name='departments', null=True)
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    manager = models.ForeignKey('StaffProfile', on_delete=models.SET_NULL, null=True, blank=True, related_name='managed_departments')
+
+    class Meta:
+        unique_together = ('municipality', 'name')
+
+    def __str__(self):
+        return f"{self.name} ({self.municipality.name if self.municipality else 'Global'})"
+
+class User(AbstractUser, AbstractBaseModel):
+    # Using AbstractUser gives us password hashing, auth flows, etc.
+    # We remove default username in favor of email if needed, but keeping it simple for now.
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=20, blank=True)
+    is_verified = models.BooleanField(default=False)
+    
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    def __str__(self):
+        return self.email
+
+class UserRole(AbstractBaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_roles')
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'role')
+
+class StaffProfile(AbstractBaseModel):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='staff_profile')
+    municipality = models.ForeignKey(Municipality, on_delete=models.CASCADE, related_name='staff', null=True)
+    department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True, related_name='staff')
+    designation = models.CharField(max_length=100, blank=True)
+    
+    def __str__(self):
+        return f"{self.user.email} - Staff"
+
+class CitizenProfile(AbstractBaseModel):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='citizen_profile')
+    municipality = models.ForeignKey(Municipality, on_delete=models.SET_NULL, null=True, related_name='citizens')
+    address = models.TextField(blank=True)
+    
+    def __str__(self):
+        return f"{self.user.email} - Citizen"
+
+class Device(AbstractBaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='devices')
+    fcm_token = models.CharField(max_length=255, blank=True)
+    device_type = models.CharField(max_length=50, blank=True)
+    
+    def __str__(self):
+        return f"Device for {self.user.email}"
+
+class NotificationPreference(AbstractBaseModel):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='notification_preferences')
+    push_enabled = models.BooleanField(default=True)
+    email_enabled = models.BooleanField(default=True)
+    sms_enabled = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Preferences for {self.user.email}"
+
+class Notification(AbstractBaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+    is_read = models.BooleanField(default=False)
+    # Generic relation to complaint or other entity without hard dependency
+    reference_id = models.CharField(max_length=100, blank=True) 
+    
+    def __str__(self):
+        return f"Notification to {self.user.email}: {self.title}"
+
+class AuditLog(AbstractBaseModel):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='audit_logs')
+    action = models.CharField(max_length=255)
+    entity_type = models.CharField(max_length=100) # e.g. "Complaint", "User", "Department"
+    entity_id = models.CharField(max_length=100)
+    old_value = models.TextField(blank=True)
+    new_value = models.TextField(blank=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+
+    def __str__(self):
+        return f"[{self.created_at}] {self.user.email if self.user else 'SYSTEM'} {self.action} on {self.entity_type} {self.entity_id}"
+
